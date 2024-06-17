@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "green_villager.miners_dream.mixin.client",
+	"compatibilityLevel": "JAVA_21",
+	"client": [
+		"ExampleClientMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
