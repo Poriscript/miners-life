@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "miners-dream",
+	"id": "miners_dream",
 	"version": "${version}",
 	"name": "Miners Dream",
 	"description": "This mod was made for minecraft miners. Adds some ores and recipes. Have fun!",
@@ -12,7 +12,7 @@
 		"sources": ""
 	},
 	"license": "The MIT License (MIT)",
-	"icon": "assets/miners-dream/icon.png",
+	"icon": "assets/miners_dream/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
@@ -23,9 +23,9 @@
 		]
 	},
 	"mixins": [
-		"miners-dream.mixins.json",
+		"miners_dream.mixins.json",
 		{
-			"config": "miners-dream.client.mixins.json",
+			"config": "miners_dream.client.mixins.json",
 			"environment": "client"
 		}
 	],

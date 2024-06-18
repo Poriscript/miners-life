@@ -22,7 +22,7 @@ loom {
     splitEnvironmentSourceSets()
 
 	mods {
-		"miners-dream" {
+		"miners_dream" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}
