@@ -1,4 +1,6 @@
 {
   "block.miners_dream.charcoal_block":"木炭ブロック",
-  "item_group.miners_dream.building_blocks": "建築ブロック (Miners Dream)"
+  "item.miners_dream.sulfur": "硫黄",
+  "item.miners_dream.wet_meet": "濡れた肉",
+  "item.miners_dream.dried_meet": "干し肉"
 }

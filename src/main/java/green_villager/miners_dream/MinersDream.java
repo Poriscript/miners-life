@@ -1,18 +1,16 @@
 package green_villager.miners_dream;
 
+import green_villager.miners_dream.block.BlockDefinition;
+import green_villager.miners_dream.item.ItemDefinition;
+import green_villager.miners_dream.item_group.ItemGroupDefinition;
 import net.fabricmc.api.ModInitializer;
 
-import net.fabricmc.fabric.api.block.v1.FabricBlock;
-import net.fabricmc.fabric.api.item.v1.FabricItem;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.minecraft.block.AbstractBlock;
+import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.item.*;
+import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.TypedActionResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,35 +22,28 @@ public class MinersDream implements ModInitializer {
 
     public static final String MOD_ID = "miners_dream";
 
-
     @Override
     public void onInitialize() {
         // This code runs as soon as Minecraft is in a mod-load-ready state.
         // However, some things (like resources) may still be uninitialized.
         // Proceed with mild caution.
 
-        // ブロックを生成
-        final Block CHARCOAL_BLOCK = new Block(AbstractBlock.Settings.copy(Blocks.COAL_BLOCK));
+        BlockDefinition.DefineBlocks();
+        ItemDefinition.DefineItems();
+        ItemGroupDefinition.DefineItemGroup();
 
-        // ブロックを登録
-        Registry.register(Registries.BLOCK, Identifier.of(MOD_ID, "charcoal_block"), CHARCOAL_BLOCK);
+        UseItemCallback.EVENT.register((player, world, hand) -> {
+            player.getHungerManager().addExhaustion(18);
+            return TypedActionResult.pass(ItemStack.EMPTY);
+        });
 
-        // ブロック用アイテムを登録
-        final BlockItem CHARCOAL_BLOCK_ITEM = new BlockItem(CHARCOAL_BLOCK, new Item.Settings());
-        Registry.register(Registries.ITEM, Identifier.of(MOD_ID, "charcoal_block"), CHARCOAL_BLOCK_ITEM);
+        Block block = Registries.BLOCK.get(Identifier.of(MOD_ID, "charcoal_block"));
+        LOGGER.warn(block.getName().toString());
+    }
 
-        // 独自のアイテムグループを作成
-        //@formatter:off
-		final ItemGroup MINERS_DREAM_ITEMGROUP = FabricItemGroup.builder()
-                .icon(()-> new ItemStack(CHARCOAL_BLOCK_ITEM))
-                .displayName(Text.translatable("item_group.miners_dream.building_blocks"))
-                .entries((context, entries) -> {
-                    entries.add(CHARCOAL_BLOCK_ITEM);
-                })
-                .build();
-
-        // 独自のアイテムグループに追加。クリエイティブインベントリでカテゴリ分けされる
-        Registry.register(Registries.ITEM_GROUP, Identifier.of(MOD_ID, "charcoal_block"), MINERS_DREAM_ITEMGROUP);
+    // Utilities
+    public static int TickFrom(int seconds) {
+        return seconds * 20;
     }
 }
 

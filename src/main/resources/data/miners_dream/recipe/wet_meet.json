@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "food",
+  "ingredients": [
+    {
+      "item": "minecraft:rotten_flesh"
+    },
+    {
+      "item": "minecraft:copper_ingot"
+    },
+    {
+      "item": "minecraft:water_bucket"
+    },
+    {
+      "item": "miners_dream:sulfur"
+    }
+  ],
+  "result": {
+    "id": "miners_dream:wet_meet"
+  }
+}

@@ -1,4 +1,6 @@
 {
   "block.miners_dream.charcoal_block":"Block of Charcoal",
-  "item_group.miners_dream.building_blocks": "Building Blocks (Miners Dream)"
+  "item.miners_dream.sulfur": "Sulfur",
+  "item.miners_dream.wet_meet": "Wet meet",
+  "item.miners_dream.dried_meet": "Dried meet"
 }
