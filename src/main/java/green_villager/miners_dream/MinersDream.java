@@ -5,12 +5,6 @@ import green_villager.miners_dream.item.ItemDefinition;
 import green_villager.miners_dream.item_group.ItemGroupDefinition;
 import net.fabricmc.api.ModInitializer;
 
-import net.fabricmc.fabric.api.event.player.UseItemCallback;
-import net.minecraft.block.Block;
-import net.minecraft.item.ItemStack;
-import net.minecraft.registry.Registries;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.TypedActionResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,14 +25,6 @@ public class MinersDream implements ModInitializer {
         BlockDefinition.defineBlocks();
         ItemDefinition.defineItems();
         ItemGroupDefinition.defineItemGroup();
-
-        UseItemCallback.EVENT.register((player, world, hand) -> {
-            player.getHungerManager().addExhaustion(18);
-            return TypedActionResult.pass(ItemStack.EMPTY);
-        });
-
-        Block block = Registries.BLOCK.get(Identifier.of(MOD_ID, "charcoal_block"));
-        LOGGER.warn(block.getName().toString());
     }
 
     // Utilities

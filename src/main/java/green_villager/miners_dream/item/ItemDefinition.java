@@ -6,13 +6,15 @@ import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemStackSet;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class ItemDefinition {
-    private static final Set<ItemStack> miners_dream_items = ItemStackSet.create();
+    private static final Set<ItemConvertible> miners_dream_items = new HashSet<>();
 
     // Instant health heals 4 (2 hearts) of health per tick.
     // Dried meat has a 20% chance of instantly healing 8 (2 hearts) of health.
@@ -24,12 +26,12 @@ public class ItemDefinition {
 
         FuelRegistry.INSTANCE.add(SULFUR, 20);
 
-        miners_dream_items.add(new ItemStack(SULFUR));
-        miners_dream_items.add(new ItemStack(WET_MEET));
-        miners_dream_items.add(new ItemStack(DRIED_MEET));
+        miners_dream_items.add(SULFUR);
+        miners_dream_items.add(WET_MEET);
+        miners_dream_items.add(DRIED_MEET);
     }
 
-    public static Set<ItemStack> getMinersDreamItems() {
+    public static Set<ItemConvertible> getMinersDreamItems() {
         return miners_dream_items;
     }
 }
