@@ -15,6 +15,9 @@
 	"icon": "assets/miners_dream/icon.png",
 	"environment": "*",
 	"entrypoints": {
+		"fabric-datagen": [
+          "green_villager.miners_dream.DataGenerator"
+		],
 		"main": [
 			"green_villager.miners_dream.MinersDream"
 		],

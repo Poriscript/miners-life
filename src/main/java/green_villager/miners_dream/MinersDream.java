@@ -28,9 +28,9 @@ public class MinersDream implements ModInitializer {
         // However, some things (like resources) may still be uninitialized.
         // Proceed with mild caution.
 
-        BlockDefinition.DefineBlocks();
-        ItemDefinition.DefineItems();
-        ItemGroupDefinition.DefineItemGroup();
+        BlockDefinition.defineBlocks();
+        ItemDefinition.defineItems();
+        ItemGroupDefinition.defineItemGroup();
 
         UseItemCallback.EVENT.register((player, world, hand) -> {
             player.getHungerManager().addExhaustion(18);
@@ -42,7 +42,7 @@ public class MinersDream implements ModInitializer {
     }
 
     // Utilities
-    public static int TickFrom(int seconds) {
+    public static int tickFrom(int seconds) {
         return seconds * 20;
     }
 }

@@ -10,15 +10,15 @@ import net.minecraft.util.Identifier;
 import java.util.Set;
 
 public class ItemGroupDefinition {
-    public static void DefineItemGroup() {
-        final ItemGroup MINERS_DREAM = ItemGroupRegistration.Register(Blocks.BRICKS, "Miners Dream", GetAllMinersDreamItems(), Identifier.of(MinersDream.MOD_ID, "item_group.miners_dream"));
+    public static void defineItemGroup() {
+        final ItemGroup MINERS_DREAM = ItemGroupRegistration.Register(Blocks.BRICKS, "Miners Dream", getAllMinersDreamItems(), Identifier.of(MinersDream.MOD_ID, "item_group.miners_dream"));
     }
 
-    private static Set<ItemStack> GetAllMinersDreamItems(){
+    private static Set<ItemStack> getAllMinersDreamItems(){
         Set<ItemStack> all_items = ItemStackSet.create();
 
-        all_items.addAll(ItemDefinition.GetMinersDreamItems());
-        all_items.addAll(BlockDefinition.GetMinersDreamBlockItems());
+        all_items.addAll(ItemDefinition.getMinersDreamItems());
+        all_items.addAll(BlockDefinition.getMinersDreamBlockItems());
 
         return all_items;
     }

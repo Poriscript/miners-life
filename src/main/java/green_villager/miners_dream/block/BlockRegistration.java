@@ -9,7 +9,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class BlockRegistration {
-    public static Block Register(Block new_block, String block_id) {
+    public static Block register(Block new_block, String block_id) {
         final Identifier id = Identifier.of(MinersDream.MOD_ID, block_id);
         Registry.register(Registries.ITEM, id, new BlockItem(new_block, new Item.Settings()));
         return Registry.register(Registries.BLOCK, id, new_block);
