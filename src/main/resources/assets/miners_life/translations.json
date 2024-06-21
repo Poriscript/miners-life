@@ -1,0 +1,69 @@
+{
+  "translations": [
+    {
+      "key": "block.miners_life.charcoal_block",
+      "ja_jp": "木炭ブロック",
+      "en_us": "Block of Charcoal"
+    },
+    {
+      "key": "block.miners_life.dried_meet_block",
+      "ja_jp": "干し肉ブロック",
+      "en_us": "Block of Dried meet"
+    },
+    {
+      "key": "item.miners_life.sulfur",
+      "ja_jp": "硫黄",
+      "en_us": "Sulfur"
+    },
+    {
+      "key": "item.miners_life.wet_meet",
+      "ja_jp": "濡れた肉",
+      "en_us": "Wet meet"
+    },
+    {
+      "key": "item.miners_life.dried_meet",
+      "ja_jp": "干し肉",
+      "en_us": "Dried meet"
+    },
+    {
+      "key": "advancements.miners_life.root.title",
+      "ja_jp": "採掘家の生活",
+      "en_us": "Miners Life"
+    },
+    {
+      "key": "advancements.miners_life.root.description",
+      "ja_jp": "掘る、焼く、集める",
+      "en_us": "Digging, Smelting, Collecting"
+    },
+    {
+      "key": "advancements.miners_life.sulfur.title",
+      "ja_jp": "変なにおいだ。",
+      "en_us": "It is weird smell."
+    },
+    {
+      "key": "advancements.miners_life.sulfur.description",
+      "ja_jp": "何かの薬品になるかも",
+      "en_us": "It could be some kind of chemical."
+    },
+    {
+      "key": "advancements.miners_life.wet_meet.title",
+      "ja_jp": "雑菌はなくなったかな？",
+      "en_us": "Are the germs gone ?"
+    },
+    {
+      "key": "advancements.miners_life.wet_meet.description",
+      "ja_jp": "濡れたままでは食べられない",
+      "en_us": "Cannot eat because it is wet."
+    },
+    {
+      "key": "advancements.miners_life.dried_meet.title",
+      "ja_jp": "食べるのが待ち遠しい！",
+      "en_us": "Can't wait to eat!"
+    },
+    {
+      "key": "advancements.miners_life.dried_meet.description",
+      "ja_jp": "元気100パーセント！",
+      "en_us": "It gives me a lot of energy."
+    }
+  ]
+}

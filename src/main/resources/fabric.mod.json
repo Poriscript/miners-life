@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "miners_dream",
+	"id": "miners_life",
 	"version": "${version}",
 	"name": "Miners Dream",
 	"description": "This mod was made for minecraft miners. Adds some ores and recipes. Have fun!",
@@ -12,23 +12,23 @@
 		"sources": ""
 	},
 	"license": "The MIT License (MIT)",
-	"icon": "assets/miners_dream/icon.png",
+	"icon": "assets/miners_life/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"fabric-datagen": [
-          "green_villager.miners_dream.DataGenerator"
+          "green_villager.miners_life.DataGenerator"
 		],
 		"main": [
-			"green_villager.miners_dream.MinersDream"
+          "green_villager.miners_life.MinersLife"
 		],
 		"client": [
-			"green_villager.miners_dream.MinersDreamClient"
+			"green_villager.miners_life.MinersLifeClient"
 		]
 	},
 	"mixins": [
-		"miners_dream.mixins.json",
+		"miners_life.mixins.json",
 		{
-			"config": "miners_dream.client.mixins.json",
+			"config": "miners_life.client.mixins.json",
 			"environment": "client"
 		}
 	],
