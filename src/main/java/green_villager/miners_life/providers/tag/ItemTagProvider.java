@@ -23,7 +23,7 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         FabricTagProvider<Item>.FabricTagBuilder builder = getOrCreateTagBuilder(MINERS_LIFE);
 
-        for (ItemConvertible item : ItemDefinition.getMinersDreamItems()){
+        for (ItemConvertible item : ItemDefinition.getAllMinersDreamItems()){
             builder.add(item.asItem());
         }
     }

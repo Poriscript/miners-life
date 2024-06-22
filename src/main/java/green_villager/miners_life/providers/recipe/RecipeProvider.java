@@ -34,11 +34,11 @@ public class RecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void generate(RecipeExporter exporter) {
-        final Item charcoal_block = BlockDefinition.getMinersDreamBlock("charcoal_block");
-        final Item sulfur = ItemDefinition.getMinersDreamItem("sulfur");
-        final Item wet_meet = ItemDefinition.getMinersDreamItem("wet_meet");
-        final Item dried_meet = ItemDefinition.getMinersDreamItem("dried_meet");
-        final Item dried_meet_block = BlockDefinition.getMinersDreamBlock("dried_meet_block");
+        final Item charcoal_block = BlockDefinition.CHARCOAL_BLOCK.asItem();
+        final Item sulfur = ItemDefinition.SULFUR;
+        final Item wet_meet = ItemDefinition.WET_MEET;
+        final Item dried_meet = ItemDefinition.DRIED_MEET;
+        final Item dried_meet_block = BlockDefinition.DRIED_MEET_BLOCK.asItem();
 
         offerCompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, Items.CHARCOAL, charcoal_block);
         offerSmelting(exporter, List.of(Items.ROTTEN_FLESH), RecipeCategory.MISC, Items.CHARCOAL, 0.1f, 200, "coal");

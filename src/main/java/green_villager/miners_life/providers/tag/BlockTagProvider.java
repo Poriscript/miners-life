@@ -23,7 +23,7 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         FabricTagProvider<Block>.FabricTagBuilder builder = getOrCreateTagBuilder(MINERS_LIFE);
 
-        for (ItemConvertible block : BlockDefinition.getMinersDreamBlocks()){
+        for (ItemConvertible block : BlockDefinition.getAllMinersDreamBlocks()){
             builder.add((Block) block).setReplace(false);
         }
     }

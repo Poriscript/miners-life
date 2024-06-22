@@ -12,15 +12,10 @@ import java.util.Set;
 
 public class ItemGroupDefinition {
     public static void defineItemGroup() {
-        final ItemGroup MINERS_LIFE = ItemGroupRegistration.Register(Blocks.BRICKS, "Miners Dream", getAllMinersDreamItems(), Identifier.of(MinersLife.MOD_ID, "item_group.miners_life"));
-    }
-
-    private static Set<ItemConvertible> getAllMinersDreamItems(){
         Set<ItemConvertible> all_items = new HashSet<>();
+        all_items.addAll(ItemDefinition.getAllMinersDreamItems());
+        all_items.addAll(BlockDefinition.getAllMinersDreamBlocks());
 
-        all_items.addAll(ItemDefinition.getMinersDreamItems());
-        all_items.addAll(BlockDefinition.getMinersDreamBlocks());
-
-        return all_items;
+        final ItemGroup MINERS_LIFE = ItemGroupRegistration.Register(Blocks.BRICKS, "Miners Dream", all_items, Identifier.of(MinersLife.MOD_ID, "item_group.miners_life"));
     }
 }

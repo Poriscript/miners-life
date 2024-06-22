@@ -1,5 +1,7 @@
 package green_villager.miners_life.item_group;
 
+import green_villager.miners_life.block.BlockDefinition;
+import green_villager.miners_life.item.ItemDefinition;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemGroup;
@@ -10,6 +12,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
