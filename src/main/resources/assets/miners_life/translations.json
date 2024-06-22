@@ -36,32 +36,32 @@
       "en_us": "Digging, Smelting, Collecting"
     },
     {
-      "key": "advancements.miners_life.sulfur.title",
+      "key": "advancements.miners_life.get_sulfur.title",
       "ja_jp": "変なにおいだ。",
       "en_us": "It is weird smell."
     },
     {
-      "key": "advancements.miners_life.sulfur.description",
+      "key": "advancements.miners_life.get_sulfur.description",
       "ja_jp": "何かの薬品になるかも",
       "en_us": "It could be some kind of chemical."
     },
     {
-      "key": "advancements.miners_life.wet_meet.title",
+      "key": "advancements.miners_life.get_wet_meet.title",
       "ja_jp": "雑菌はなくなったかな？",
       "en_us": "Are the germs gone ?"
     },
     {
-      "key": "advancements.miners_life.wet_meet.description",
+      "key": "advancements.miners_life.get_wet_meet.description",
       "ja_jp": "濡れたままでは食べられない",
       "en_us": "Cannot eat because it is wet."
     },
     {
-      "key": "advancements.miners_life.dried_meet.title",
+      "key": "advancements.miners_life.get_dried_meet.title",
       "ja_jp": "食べるのが待ち遠しい！",
       "en_us": "Can't wait to eat!"
     },
     {
-      "key": "advancements.miners_life.dried_meet.description",
+      "key": "advancements.miners_life.get_dried_meet.description",
       "ja_jp": "元気100パーセント！",
       "en_us": "It gives me a lot of energy."
     }

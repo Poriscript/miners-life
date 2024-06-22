@@ -8,10 +8,10 @@ import java.util.concurrent.CompletableFuture;
 
 public class EnglishLanguageProvider extends FabricLanguageProvider {
 
-    private static final String LANGUAGE_CODE = "en_us";
+    private static final LanguageCode LANGUAGE_CODE = LanguageCode.EN_US;
 
     public EnglishLanguageProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
-        super(dataOutput, LANGUAGE_CODE, registryLookup);
+        super(dataOutput, LANGUAGE_CODE.name().toLowerCase(), registryLookup);
     }
 
     @Override

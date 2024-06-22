@@ -24,7 +24,7 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
         FabricTagProvider<Item>.FabricTagBuilder builder = getOrCreateTagBuilder(MINERS_LIFE);
 
         for (ItemConvertible item : ItemDefinition.getAllMinersDreamItems()){
-            builder.add(item.asItem());
+            builder.add(item.asItem()).setReplace(false);
         }
     }
 }

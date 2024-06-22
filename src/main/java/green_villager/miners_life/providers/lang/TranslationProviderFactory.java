@@ -4,39 +4,27 @@ import com.google.gson.Gson;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 
-import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.util.List;
 
 public class TranslationProviderFactory {
-    public static void generate(FabricDataOutput dataOutput, FabricLanguageProvider.TranslationBuilder translationBuilder, String language_code) {
+    public static void generate(FabricDataOutput dataOutput, FabricLanguageProvider.TranslationBuilder translationBuilder, LanguageCode language_code) {
         try {
-            // build/datagenがルートディレクトリ。再生成の際はsrc/main/generated/../langとbuild/resources/main/../langのjsonファイルを削除して、2回runDatagenを行う
-            String json_str = Files.readString(Paths.get("../resources/main/assets/miners_life/translations.json"));
+            String json_str = Files.readString(dataOutput.getModContainer().findPath("assets/miners_life/translations.json").orElseThrow());
+            List<TranslationSchema.Translation> translations = new Gson().fromJson(json_str, TranslationSchema.class).translations;
 
-            Gson gson = new Gson();
-            TranslationSchema json_obj = gson.fromJson(json_str, TranslationSchema.class);
+            for (TranslationSchema.Translation translation : translations) {
+                String value = switch (language_code) {
+                    case JA_JP -> translation.jaJp;
+                    case EN_US -> translation.enUs;
+                    default -> throw new RuntimeException("Unknown language code.");
+                };
 
-            for (TranslationSchema.Translation translation : json_obj.translations) {
-                translationBuilder.add(translation.key, getTranslatedValue(translation, language_code));
-            }
-
-            try {
-                translationBuilder.add(dataOutput.getModContainer().findPath(String.format("assets/miners_life/lang/%s.json", language_code)).orElseThrow());
-            } catch (IOException e) {
-                throw new RuntimeException("Failed to add the language file!", e);
+                translationBuilder.add(translation.key, value);
             }
 
         } catch (Exception e) {
             throw new RuntimeException("Failed to read translation file!", e);
         }
-    }
-
-    private static String getTranslatedValue(TranslationSchema.Translation translation, String language_code) {
-        return switch (language_code) {
-            case "ja_jp" -> translation.jaJp;
-            case "en_us" -> translation.enUs;
-            default -> throw new RuntimeException("Unknown language code.");
-        };
     }
 }

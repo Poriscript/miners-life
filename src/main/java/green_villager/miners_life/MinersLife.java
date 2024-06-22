@@ -5,7 +5,7 @@ import green_villager.miners_life.item.ItemDefinition;
 import green_villager.miners_life.item_group.ItemGroupDefinition;
 import net.fabricmc.api.ModInitializer;
 
-import net.minecraft.advancement.criterion.Criteria;
+import net.minecraft.item.Item;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,7 +29,13 @@ public class MinersLife implements ModInitializer {
     }
 
     // Utilities
-    public static int tickFrom(int seconds) {
+    public static int getTickFromSeconds(int seconds) {
         return seconds * 20;
+    }
+
+    public static String getItemName(Item item) {
+        return item.getName().getString().toLowerCase()
+                .replaceAll(".*\\.", "")
+                .replaceAll(" ", "_");
     }
 }

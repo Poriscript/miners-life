@@ -9,6 +9,7 @@ import net.minecraft.advancement.AdvancementEntry;
 import net.minecraft.advancement.AdvancementFrame;
 import net.minecraft.advancement.AdvancementRewards;
 import net.minecraft.advancement.criterion.InventoryChangedCriterion;
+import net.minecraft.datafixer.fix.ItemNameFix;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
@@ -48,14 +49,13 @@ public class AdvancementProvider extends FabricAdvancementProvider {
     }
 
     private AdvancementEntry createAdvancement(Consumer<AdvancementEntry> consumer, AdvancementEntry parent, Item icon) {
-        final String item_name = icon.getName().getString().replaceFirst(".*\\.", "");
-        final String get_item_str = String.format("get_%s", item_name);
+        final String get_item_str = String.format("get_%s", MinersLife.getItemName(icon));
 
         return Advancement.Builder.create().parent(parent)
                 .display(
                         icon,
-                        Text.translatable(getTranslationTitleKey(item_name)),
-                        Text.translatable(getTranslationDescriptionKey(item_name)),
+                        Text.translatable(getTranslationTitleKey(get_item_str)),
+                        Text.translatable(getTranslationDescriptionKey(get_item_str)),
                         BACKGROUND_ID,
                         AdvancementFrame.TASK,
                         true,
@@ -68,10 +68,10 @@ public class AdvancementProvider extends FabricAdvancementProvider {
     }
 
     private String getTranslationTitleKey(String id) {
-        return String.format("advancements.miners_life.recipes.%s.title", id);
+        return String.format("advancements.miners_life.%s.title", id);
     }
 
     private String getTranslationDescriptionKey(String id) {
-        return String.format("advancements.miners_life.recipes.%s.description", id);
+        return String.format("advancements.miners_life.%s.description", id);
     }
 }
