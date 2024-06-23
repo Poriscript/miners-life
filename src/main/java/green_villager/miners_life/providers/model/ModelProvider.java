@@ -17,11 +17,17 @@ public class ModelProvider extends FabricModelProvider {
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         blockStateModelGenerator.registerSimpleCubeAll(BlockDefinition.CHARCOAL_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(BlockDefinition.DRIED_MEET_BLOCK);
+
+        blockStateModelGenerator.registerSimpleCubeAll(BlockDefinition.SULFUR_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(BlockDefinition.DEEPSLATE_SULFUR_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(BlockDefinition.NITRE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(BlockDefinition.DEEPSLATE_NITRE_ORE);
     }
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ItemDefinition.SULFUR, Models.GENERATED);
+        itemModelGenerator.register(ItemDefinition.NITRE, Models.GENERATED);
         itemModelGenerator.register(ItemDefinition.WET_MEET, Models.GENERATED);
         itemModelGenerator.register(ItemDefinition.DRIED_MEET, Models.GENERATED);
     }

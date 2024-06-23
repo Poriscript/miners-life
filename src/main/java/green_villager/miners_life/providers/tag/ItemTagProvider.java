@@ -1,5 +1,6 @@
 package green_villager.miners_life.providers.tag;
 
+import green_villager.miners_life.MinersLife;
 import green_villager.miners_life.item.ItemDefinition;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
@@ -17,13 +18,13 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
         super(output, completableFuture);
     }
 
-    private static final TagKey<Item> MINERS_LIFE = TagKey.of(RegistryKeys.ITEM, Identifier.of("miners_life:item"));
+    private static final TagKey<Item> MINERS_LIFE = TagKey.of(RegistryKeys.ITEM, Identifier.of(MinersLife.MOD_ID, "item"));
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         FabricTagProvider<Item>.FabricTagBuilder builder = getOrCreateTagBuilder(MINERS_LIFE);
 
-        for (ItemConvertible item : ItemDefinition.getAllMinersDreamItems()){
+        for (ItemConvertible item : ItemDefinition.getAllMinersDreamItems()) {
             builder.add(item.asItem()).setReplace(false);
         }
     }

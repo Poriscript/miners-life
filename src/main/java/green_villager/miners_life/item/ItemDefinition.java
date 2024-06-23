@@ -15,6 +15,7 @@ public class ItemDefinition {
     // Instant health heals 4 (2 hearts) of health per tick.
     // Dried meat has a 20% chance of instantly healing 8 (2 hearts) of health.
     public static final Item SULFUR = ItemRegistration.Register(new Item(new Item.Settings()), "sulfur");
+    public static final Item NITRE = ItemRegistration.Register(new Item(new Item.Settings()), "nitre");
     public static final Item WET_MEET = ItemRegistration.Register(new Item(new Item.Settings().food(new FoodComponent.Builder().statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, MinersLife.getTickFromSeconds(10)), 1).statusEffect(new StatusEffectInstance(StatusEffects.POISON, MinersLife.getTickFromSeconds(10)), 1).statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, MinersLife.getTickFromSeconds(10)), 1).build())), "wet_meet");
     public static final Item DRIED_MEET = ItemRegistration.Register(new Item(new Item.Settings().food(new FoodComponent.Builder().snack().nutrition(4).saturationModifier(1).statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 2), 0.2f).build())), "dried_meet");
 

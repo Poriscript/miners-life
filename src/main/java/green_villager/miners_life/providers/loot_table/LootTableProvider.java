@@ -4,7 +4,6 @@ import green_villager.miners_life.block.BlockDefinition;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
-import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 import net.minecraft.data.server.loottable.BlockLootTableGenerator;
 import net.minecraft.loot.LootTable;
 import net.minecraft.registry.RegistryKey;
@@ -22,6 +21,11 @@ public class LootTableProvider extends FabricBlockLootTableProvider {
     public void generate() {
         addDrop(BlockDefinition.CHARCOAL_BLOCK);
         addDrop(BlockDefinition.DRIED_MEET_BLOCK);
+
+        addDrop(BlockDefinition.SULFUR_ORE);
+        addDrop(BlockDefinition.DEEPSLATE_SULFUR_ORE);
+        addDrop(BlockDefinition.NITRE_ORE);
+        addDrop(BlockDefinition.DEEPSLATE_NITRE_ORE);
     }
 
     @Override

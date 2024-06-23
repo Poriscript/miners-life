@@ -1,18 +1,17 @@
 package green_villager.miners_life.providers.advancement;
 
+import green_villager.miners_life.Enums;
 import green_villager.miners_life.MinersLife;
 import green_villager.miners_life.item.ItemDefinition;
+import green_villager.miners_life.providers.recipe.RecipeProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
-import net.minecraft.advancement.Advancement;
-import net.minecraft.advancement.AdvancementEntry;
-import net.minecraft.advancement.AdvancementFrame;
-import net.minecraft.advancement.AdvancementRewards;
+import net.minecraft.advancement.*;
 import net.minecraft.advancement.criterion.InventoryChangedCriterion;
-import net.minecraft.datafixer.fix.ItemNameFix;
+import net.minecraft.advancement.criterion.RecipeUnlockedCriterion;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.*;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
@@ -46,10 +45,31 @@ public class AdvancementProvider extends FabricAdvancementProvider {
         AdvancementEntry getSulfurAdvancement = createAdvancement(consumer, rootAdvancement, ItemDefinition.SULFUR);
         AdvancementEntry getWetMeetAdvancement = createAdvancement(consumer, getSulfurAdvancement, ItemDefinition.WET_MEET);
         AdvancementEntry getDriedMeetAdvancement = createAdvancement(consumer, getWetMeetAdvancement, ItemDefinition.DRIED_MEET);
+
+        AdvancementEntry getNitreAdvancement = createAdvancement(consumer, rootAdvancement, ItemDefinition.NITRE);
+
+        AdvancementEntry craftGunPowderAdvancement = createAdvancement(consumer, getNitreAdvancement, Items.GUNPOWDER,
+                Enums.ActionTypes.Craft,
+                RecipeUnlockedCriterion.create(RecipeProvider.GUNPOWDER_RECIPE_ID),
+                AdvancementRewards.Builder.experience(128).build());
+
+        AdvancementEntry craftSandAdvancement = createAdvancement(consumer, craftGunPowderAdvancement, Items.SAND,
+                Enums.ActionTypes.Craft,
+                RecipeUnlockedCriterion.create(RecipeProvider.SAND_RECIPE_ID),
+                AdvancementRewards.Builder.experience(128).build());
+
+        AdvancementEntry getTNTAdvancement = createAdvancement(consumer, craftSandAdvancement, Items.TNT);
     }
 
     private AdvancementEntry createAdvancement(Consumer<AdvancementEntry> consumer, AdvancementEntry parent, Item icon) {
-        final String get_item_str = String.format("get_%s", MinersLife.getItemName(icon));
+        return createAdvancement(consumer, parent, icon,
+                Enums.ActionTypes.Get,
+                InventoryChangedCriterion.Conditions.items(icon),
+                AdvancementRewards.Builder.experience(128).build());
+    }
+
+    private AdvancementEntry createAdvancement(Consumer<AdvancementEntry> consumer, AdvancementEntry parent, Item icon, Enums.ActionTypes actionType, AdvancementCriterion<?> criterion, AdvancementRewards rewards) {
+        final String get_item_str = String.format("%s_%s", actionType.name().toLowerCase(), MinersLife.getItemName(icon));
 
         return Advancement.Builder.create().parent(parent)
                 .display(
@@ -62,8 +82,8 @@ public class AdvancementProvider extends FabricAdvancementProvider {
                         true,
                         false
                 )
-                .criterion(get_item_str, InventoryChangedCriterion.Conditions.items(icon))
-                .rewards(AdvancementRewards.Builder.experience(128))
+                .criterion(get_item_str, criterion)
+                .rewards(rewards)
                 .build(consumer, String.format("%s:%s", MinersLife.MOD_ID, get_item_str));
     }
 

@@ -15,6 +15,11 @@ public class BlockDefinition {
     public static final Block CHARCOAL_BLOCK = BlockRegistration.register(new Block(AbstractBlock.Settings.copy(Blocks.COAL_BLOCK)), "charcoal_block");
     public static final Block DRIED_MEET_BLOCK = BlockRegistration.register(new Block(AbstractBlock.Settings.copy(Blocks.SPONGE)), "dried_meet_block");
 
+    public static final Block SULFUR_ORE = BlockRegistration.register(new Block(AbstractBlock.Settings.copy(Blocks.LAPIS_ORE)), "sulfur_ore");
+    public static final Block DEEPSLATE_SULFUR_ORE = BlockRegistration.register(new Block(AbstractBlock.Settings.copy(Blocks.DEEPSLATE_LAPIS_ORE)), "deepslate_sulfur_ore");
+    public static final Block NITRE_ORE = BlockRegistration.register(new Block(AbstractBlock.Settings.copy(Blocks.LAPIS_ORE)), "nitre_ore");
+    public static final Block DEEPSLATE_NITRE_ORE = BlockRegistration.register(new Block(AbstractBlock.Settings.copy(Blocks.DEEPSLATE_LAPIS_ORE)), "deepslate_nitre_ore");
+
     public static void defineBlocks() {
         FuelRegistry.INSTANCE.add(CHARCOAL_BLOCK, 15200);
     }

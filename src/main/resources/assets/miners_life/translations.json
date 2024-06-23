@@ -11,9 +11,34 @@
       "en_us": "Block of Dried meet"
     },
     {
+      "key": "block.miners_life.sulfur_ore",
+      "ja_jp": "硫黄鉱石",
+      "en_us": "Sulfur Ore"
+    },
+    {
+      "key": "block.miners_life.nitre_ore",
+      "ja_jp": "硝石鉱石",
+      "en_us": "Nitre Ore"
+    },
+    {
+      "key": "block.miners_life.deepslate_sulfur_ore",
+      "ja_jp": "深層硫黄鉱石",
+      "en_us": "Deepslate Sulfur Ore"
+    },
+    {
+      "key": "block.miners_life.deepslate_nitre_ore",
+      "ja_jp": "深層硝石鉱石",
+      "en_us": "Deepslate Nitre Ore"
+    },
+    {
       "key": "item.miners_life.sulfur",
       "ja_jp": "硫黄",
       "en_us": "Sulfur"
+    },
+    {
+      "key": "item.miners_life.nitre",
+      "ja_jp": "硝石",
+      "en_us": "Nitre"
     },
     {
       "key": "item.miners_life.wet_meet",
@@ -64,6 +89,46 @@
       "key": "advancements.miners_life.get_dried_meet.description",
       "ja_jp": "元気100パーセント！",
       "en_us": "It gives me a lot of energy."
+    },
+    {
+      "key": "advancements.miners_life.get_nitre.title",
+      "ja_jp": "白っぽい石を発見！",
+      "en_us": "Found whitish stones!"
+    },
+    {
+      "key": "advancements.miners_life.get_nitre.description",
+      "ja_jp": "なにかと混ぜて使ってみよう。",
+      "en_us": "Let's mix it with something else."
+    },
+    {
+      "key": "advancements.miners_life.craft_gunpowder.title",
+      "ja_jp": "激しく反応します。",
+      "en_us": "It reacts intensely."
+    },
+    {
+      "key": "advancements.miners_life.craft_gunpowder.description",
+      "ja_jp": "TNTを量産しよう。",
+      "en_us": "Let's mass produce TNT."
+    },
+    {
+      "key": "advancements.miners_life.craft_sand.title",
+      "ja_jp": "昇天させましょう。",
+      "en_us": "Let them ascend."
+    },
+    {
+      "key": "advancements.miners_life.craft_sand.description",
+      "ja_jp": "火薬を安全に取り扱うために必要です。",
+      "en_us": "Required for safe handling of gunpowder."
+    },
+    {
+      "key": "advancements.miners_life.get_tnt.title",
+      "ja_jp": "起爆、爆破、誘爆",
+      "en_us": "Exploding, Explosion, Induced Explosion"
+    },
+    {
+      "key": "advancements.miners_life.get_tnt.description",
+      "ja_jp": "コストを抑えて爆破採掘しましょう。",
+      "en_us": "Keep costs low and blast mining."
     }
   ]
 }

@@ -3,6 +3,7 @@ package green_villager.miners_life;
 import green_villager.miners_life.block.BlockDefinition;
 import green_villager.miners_life.item.ItemDefinition;
 import green_villager.miners_life.item_group.ItemGroupDefinition;
+import green_villager.miners_life.world.WorldDefinition;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.item.Item;
@@ -26,6 +27,7 @@ public class MinersLife implements ModInitializer {
         BlockDefinition.defineBlocks();
         ItemDefinition.defineItems();
         ItemGroupDefinition.defineItemGroup();
+        WorldDefinition.defineWorld();
     }
 
     // Utilities
