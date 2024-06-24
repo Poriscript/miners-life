@@ -1,8 +1,8 @@
 package green_villager.miners_life.providers.recipe;
 
 import green_villager.miners_life.MinersLife;
-import green_villager.miners_life.block.BlockDefinition;
-import green_villager.miners_life.item.ItemDefinition;
+import green_villager.miners_life.block.BlockRegistration;
+import green_villager.miners_life.item.ItemRegistration;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.CookingRecipeJsonBuilder;
@@ -29,16 +29,16 @@ public class RecipeProvider extends FabricRecipeProvider {
     @Override
     public void generate(RecipeExporter exporter) {
         //crafting
-        createReversibleCompactingRecipes(exporter, RecipeCategory.MISC, Items.CHARCOAL, RecipeCategory.BUILDING_BLOCKS, BlockDefinition.CHARCOAL_BLOCK.asItem());
-        createReversibleCompactingRecipes(exporter, RecipeCategory.FOOD, ItemDefinition.DRIED_MEET, RecipeCategory.BUILDING_BLOCKS, BlockDefinition.DRIED_MEET_BLOCK.asItem());
+        createReversibleCompactingRecipes(exporter, RecipeCategory.MISC, Items.CHARCOAL, RecipeCategory.BUILDING_BLOCKS, BlockRegistration.CHARCOAL_BLOCK.asItem());
+        createReversibleCompactingRecipes(exporter, RecipeCategory.FOOD, ItemRegistration.DRIED_MEET, RecipeCategory.BUILDING_BLOCKS, BlockRegistration.DRIED_MEET_BLOCK.asItem());
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.GUNPOWDER, 5)
                 .pattern("NNN").pattern("SCS").pattern("NNN")
-                .input('N', ItemDefinition.NITRE)
-                .input('S', ItemDefinition.SULFUR)
+                .input('N', ItemRegistration.NITRE)
+                .input('S', ItemRegistration.SULFUR)
                 .input('C', Items.CHARCOAL)
-                .criterion(FabricRecipeProvider.hasItem(ItemDefinition.SULFUR), FabricRecipeProvider.conditionsFromItem(ItemDefinition.SULFUR))
-                .criterion(FabricRecipeProvider.hasItem(ItemDefinition.NITRE), FabricRecipeProvider.conditionsFromItem(ItemDefinition.NITRE))
+                .criterion(FabricRecipeProvider.hasItem(ItemRegistration.SULFUR), FabricRecipeProvider.conditionsFromItem(ItemRegistration.SULFUR))
+                .criterion(FabricRecipeProvider.hasItem(ItemRegistration.NITRE), FabricRecipeProvider.conditionsFromItem(ItemRegistration.NITRE))
                 .offerTo(exporter, GUNPOWDER_RECIPE_ID);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.SAND, 2)
@@ -48,19 +48,19 @@ public class RecipeProvider extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(Items.END_STONE), FabricRecipeProvider.conditionsFromItem(Items.END_STONE))
                 .offerTo(exporter, SAND_RECIPE_ID);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ItemDefinition.WET_MEET)
-                .input(ItemDefinition.SULFUR)
-                .input(ItemDefinition.NITRE)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ItemRegistration.WET_MEET)
+                .input(ItemRegistration.SULFUR)
+                .input(ItemRegistration.NITRE)
                 .input(Items.ROTTEN_FLESH)
                 .input(Items.WATER_BUCKET)
                 .input(Items.COPPER_INGOT)
-                .criterion(FabricRecipeProvider.hasItem(ItemDefinition.SULFUR), FabricRecipeProvider.conditionsFromItem(ItemDefinition.SULFUR))
+                .criterion(FabricRecipeProvider.hasItem(ItemRegistration.SULFUR), FabricRecipeProvider.conditionsFromItem(ItemRegistration.SULFUR))
                 .offerTo(exporter);
 
         //smelting
         createSmeltingRecipes(exporter, RecipeCategory.MISC, Items.ROTTEN_FLESH, Items.CHARCOAL, 0.1f, 200);
         //smoking
-        createSmokingRecipes(exporter, RecipeCategory.FOOD, ItemDefinition.WET_MEET, ItemDefinition.DRIED_MEET, 0.1f, 100);
+        createSmokingRecipes(exporter, RecipeCategory.FOOD, ItemRegistration.WET_MEET, ItemRegistration.DRIED_MEET, 0.1f, 100);
     }
 
     private void createReversibleCompactingRecipes(RecipeExporter exporter, RecipeCategory reverseCategory, ItemConvertible baseItem, RecipeCategory compactingCategory, ItemConvertible compactItem) {

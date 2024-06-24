@@ -1,9 +1,9 @@
 package green_villager.miners_life;
 
-import green_villager.miners_life.block.BlockDefinition;
-import green_villager.miners_life.item.ItemDefinition;
-import green_villager.miners_life.item_group.ItemGroupDefinition;
-import green_villager.miners_life.world.WorldDefinition;
+import green_villager.miners_life.block.BlockRegistration;
+import green_villager.miners_life.item.ItemRegistration;
+import green_villager.miners_life.item_group.ItemGroupRegistration;
+import green_villager.miners_life.world.WorldRegistration;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.item.Item;
@@ -24,10 +24,10 @@ public class MinersLife implements ModInitializer {
         // However, some things (like resources) may still be uninitialized.
         // Proceed with mild caution.
 
-        BlockDefinition.defineBlocks();
-        ItemDefinition.defineItems();
-        ItemGroupDefinition.defineItemGroup();
-        WorldDefinition.defineWorld();
+        BlockRegistration.defineBlocks();
+        ItemRegistration.defineItems();
+        ItemGroupRegistration.defineItemGroup();
+        WorldRegistration.defineWorld();
     }
 
     // Utilities

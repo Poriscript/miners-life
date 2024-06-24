@@ -1,7 +1,7 @@
 package green_villager.miners_life.providers.tag;
 
 import green_villager.miners_life.MinersLife;
-import green_villager.miners_life.item.ItemDefinition;
+import green_villager.miners_life.item.ItemRegistration;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.item.Item;
@@ -24,7 +24,7 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         FabricTagProvider<Item>.FabricTagBuilder builder = getOrCreateTagBuilder(MINERS_LIFE);
 
-        for (ItemConvertible item : ItemDefinition.getAllMinersDreamItems()) {
+        for (ItemConvertible item : ItemRegistration.getAllMinersDreamItems()) {
             builder.add(item.asItem()).setReplace(false);
         }
     }

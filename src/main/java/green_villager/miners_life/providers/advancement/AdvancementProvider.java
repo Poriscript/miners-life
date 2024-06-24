@@ -2,7 +2,7 @@ package green_villager.miners_life.providers.advancement;
 
 import green_villager.miners_life.Enums;
 import green_villager.miners_life.MinersLife;
-import green_villager.miners_life.item.ItemDefinition;
+import green_villager.miners_life.item.ItemRegistration;
 import green_villager.miners_life.providers.recipe.RecipeProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
@@ -42,11 +42,11 @@ public class AdvancementProvider extends FabricAdvancementProvider {
                 .criterion("begin_miners_life", InventoryChangedCriterion.Conditions.items(Items.COBBLESTONE))
                 .build(consumer, String.format("%s:root", MinersLife.MOD_ID));
 
-        AdvancementEntry getSulfurAdvancement = createAdvancement(consumer, rootAdvancement, ItemDefinition.SULFUR);
-        AdvancementEntry getWetMeetAdvancement = createAdvancement(consumer, getSulfurAdvancement, ItemDefinition.WET_MEET);
-        AdvancementEntry getDriedMeetAdvancement = createAdvancement(consumer, getWetMeetAdvancement, ItemDefinition.DRIED_MEET);
+        AdvancementEntry getSulfurAdvancement = createAdvancement(consumer, rootAdvancement, ItemRegistration.SULFUR);
+        AdvancementEntry getWetMeetAdvancement = createAdvancement(consumer, getSulfurAdvancement, ItemRegistration.WET_MEET);
+        AdvancementEntry getDriedMeetAdvancement = createAdvancement(consumer, getWetMeetAdvancement, ItemRegistration.DRIED_MEET);
 
-        AdvancementEntry getNitreAdvancement = createAdvancement(consumer, rootAdvancement, ItemDefinition.NITRE);
+        AdvancementEntry getNitreAdvancement = createAdvancement(consumer, rootAdvancement, ItemRegistration.NITRE);
 
         AdvancementEntry craftGunPowderAdvancement = createAdvancement(consumer, getNitreAdvancement, Items.GUNPOWDER,
                 Enums.ActionTypes.Craft,

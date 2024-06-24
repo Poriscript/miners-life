@@ -1,7 +1,7 @@
 package green_villager.miners_life.providers.model;
 
-import green_villager.miners_life.block.BlockDefinition;
-import green_villager.miners_life.item.ItemDefinition;
+import green_villager.miners_life.block.BlockRegistration;
+import green_villager.miners_life.item.ItemRegistration;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
@@ -15,20 +15,20 @@ public class ModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-        blockStateModelGenerator.registerSimpleCubeAll(BlockDefinition.CHARCOAL_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(BlockDefinition.DRIED_MEET_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(BlockRegistration.CHARCOAL_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(BlockRegistration.DRIED_MEET_BLOCK);
 
-        blockStateModelGenerator.registerSimpleCubeAll(BlockDefinition.SULFUR_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(BlockDefinition.DEEPSLATE_SULFUR_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(BlockDefinition.NITRE_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(BlockDefinition.DEEPSLATE_NITRE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(BlockRegistration.SULFUR_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(BlockRegistration.DEEPSLATE_SULFUR_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(BlockRegistration.NITRE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(BlockRegistration.DEEPSLATE_NITRE_ORE);
     }
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        itemModelGenerator.register(ItemDefinition.SULFUR, Models.GENERATED);
-        itemModelGenerator.register(ItemDefinition.NITRE, Models.GENERATED);
-        itemModelGenerator.register(ItemDefinition.WET_MEET, Models.GENERATED);
-        itemModelGenerator.register(ItemDefinition.DRIED_MEET, Models.GENERATED);
+        itemModelGenerator.register(ItemRegistration.SULFUR, Models.GENERATED);
+        itemModelGenerator.register(ItemRegistration.NITRE, Models.GENERATED);
+        itemModelGenerator.register(ItemRegistration.WET_MEET, Models.GENERATED);
+        itemModelGenerator.register(ItemRegistration.DRIED_MEET, Models.GENERATED);
     }
 }
