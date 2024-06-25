@@ -18,11 +18,11 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
         super(output, completableFuture);
     }
 
-    private static final TagKey<Item> MINERS_LIFE = TagKey.of(RegistryKeys.ITEM, Identifier.of(MinersLife.MOD_ID, "item"));
+    private static final TagKey<Item> MINERS_LIFE_ITEMS = TagKey.of(RegistryKeys.ITEM, Identifier.of(MinersLife.MOD_ID, "miners_life_items"));
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-        FabricTagProvider<Item>.FabricTagBuilder builder = getOrCreateTagBuilder(MINERS_LIFE);
+        FabricTagProvider<Item>.FabricTagBuilder builder = getOrCreateTagBuilder(MINERS_LIFE_ITEMS);
 
         for (ItemConvertible item : ItemRegistration.getAllMinersDreamItems()) {
             builder.add(item.asItem()).setReplace(false);

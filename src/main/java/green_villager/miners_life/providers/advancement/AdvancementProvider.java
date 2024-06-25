@@ -2,6 +2,7 @@ package green_villager.miners_life.providers.advancement;
 
 import green_villager.miners_life.Enums;
 import green_villager.miners_life.MinersLife;
+import green_villager.miners_life.block.BlockRegistration;
 import green_villager.miners_life.item.ItemRegistration;
 import green_villager.miners_life.providers.recipe.RecipeProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -59,6 +60,8 @@ public class AdvancementProvider extends FabricAdvancementProvider {
                 AdvancementRewards.Builder.experience(128).build());
 
         AdvancementEntry getTNTAdvancement = createAdvancement(consumer, craftSandAdvancement, Items.TNT);
+
+        AdvancementEntry getMilkiteAdvancement = createAdvancement(consumer, getSulfurAdvancement, BlockRegistration.MILKITE.asItem());
     }
 
     private AdvancementEntry createAdvancement(Consumer<AdvancementEntry> consumer, AdvancementEntry parent, Item icon) {

@@ -1,6 +1,7 @@
 package green_villager.miners_life.block;
 
 import green_villager.miners_life.MinersLife;
+import green_villager.miners_life.block.definition.MilkiteBlock;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -25,6 +26,8 @@ public class BlockRegistration {
     public static final Block DEEPSLATE_SULFUR_ORE = registerBlock(new Block(AbstractBlock.Settings.copy(Blocks.DEEPSLATE_LAPIS_ORE)), "deepslate_sulfur_ore");
     public static final Block NITRE_ORE = registerBlock(new Block(AbstractBlock.Settings.copy(Blocks.LAPIS_ORE)), "nitre_ore");
     public static final Block DEEPSLATE_NITRE_ORE = registerBlock(new Block(AbstractBlock.Settings.copy(Blocks.DEEPSLATE_LAPIS_ORE)), "deepslate_nitre_ore");
+
+    public static final Block MILKITE = registerBlock(new MilkiteBlock(AbstractBlock.Settings.copy(Blocks.ANDESITE)), "milkite");
 
     public static void defineBlocks() {
         FuelRegistry.INSTANCE.add(CHARCOAL_BLOCK, 15200);

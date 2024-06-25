@@ -1,5 +1,5 @@
 {
-  "feature": "miners_life:sulfur_ore_cf",
+  "feature": "miners_life:milkite_cf",
   "placement": [
     {
       "type": "minecraft:count",
@@ -13,7 +13,7 @@
       "height": {
         "type": "minecraft:uniform",
         "min_inclusive": {
-          "absolute": -60
+          "absolute": 0
         },
         "max_inclusive": {
           "absolute": 256

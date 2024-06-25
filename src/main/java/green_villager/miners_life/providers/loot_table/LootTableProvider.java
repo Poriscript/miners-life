@@ -1,6 +1,7 @@
 package green_villager.miners_life.providers.loot_table;
 
 import green_villager.miners_life.block.BlockRegistration;
+import green_villager.miners_life.item.ItemRegistration;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
@@ -22,10 +23,17 @@ public class LootTableProvider extends FabricBlockLootTableProvider {
         addDrop(BlockRegistration.CHARCOAL_BLOCK);
         addDrop(BlockRegistration.DRIED_MEET_BLOCK);
 
-        addDrop(BlockRegistration.SULFUR_ORE);
-        addDrop(BlockRegistration.DEEPSLATE_SULFUR_ORE);
-        addDrop(BlockRegistration.NITRE_ORE);
-        addDrop(BlockRegistration.DEEPSLATE_NITRE_ORE);
+        addDrop(BlockRegistration.SULFUR_ORE, ItemRegistration.SULFUR);
+        addDrop(BlockRegistration.DEEPSLATE_SULFUR_ORE, ItemRegistration.SULFUR);
+        addDropWithSilkTouch(BlockRegistration.SULFUR_ORE);
+        addDropWithSilkTouch(BlockRegistration.DEEPSLATE_SULFUR_ORE);
+
+        addDrop(BlockRegistration.NITRE_ORE, ItemRegistration.NITRE);
+        addDrop(BlockRegistration.DEEPSLATE_NITRE_ORE, ItemRegistration.NITRE);
+        addDropWithSilkTouch(BlockRegistration.NITRE_ORE);
+        addDropWithSilkTouch(BlockRegistration.DEEPSLATE_NITRE_ORE);
+
+        addDrop(BlockRegistration.MILKITE);
     }
 
     @Override

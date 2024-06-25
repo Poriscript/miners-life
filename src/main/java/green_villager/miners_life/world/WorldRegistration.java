@@ -13,8 +13,12 @@ public class WorldRegistration {
     public static final RegistryKey<PlacedFeature> SULFUR_ORE_PLACED_FEATURE_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(MinersLife.MOD_ID, "sulfur_ore_pf"));
     public static final RegistryKey<PlacedFeature> NITRE_ORE_PLACED_FEATURE_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(MinersLife.MOD_ID, "nitre_ore_pf"));
 
+    public static final RegistryKey<PlacedFeature> MILKITE_FEATURE_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(MinersLife.MOD_ID, "milkite_pf"));
+
     public static void defineWorld() {
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, SULFUR_ORE_PLACED_FEATURE_KEY);
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, NITRE_ORE_PLACED_FEATURE_KEY);
+
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, MILKITE_FEATURE_KEY);
     }
 }

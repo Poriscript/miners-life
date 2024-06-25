@@ -31,6 +31,11 @@
       "en_us": "Deepslate Nitre Ore"
     },
     {
+      "key": "block.miners_life.milkite",
+      "ja_jp": "乳鉱石",
+      "en_us": "Milkite"
+    },
+    {
       "key": "item.miners_life.sulfur",
       "ja_jp": "硫黄",
       "en_us": "Sulfur"
@@ -129,6 +134,16 @@
       "key": "advancements.miners_life.get_tnt.description",
       "ja_jp": "コストを抑えて爆破採掘しましょう。",
       "en_us": "Keep costs low and blast mining."
+    },
+    {
+      "key": "advancements.miners_life.get_milkite.title",
+      "ja_jp": "栄養豊富な石。",
+      "en_us": "Nutritious stone."
+    },
+    {
+      "key": "advancements.miners_life.get_milkite.description",
+      "ja_jp": "バケツを使ってみましょう。",
+      "en_us": "Let's use a bucket."
     }
   ]
 }
