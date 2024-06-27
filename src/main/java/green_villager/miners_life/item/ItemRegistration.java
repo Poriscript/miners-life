@@ -21,6 +21,8 @@ public class ItemRegistration {
     public static final Item NITRE = RegisterItem(new Item(new Item.Settings()), "nitre");
     public static final Item WET_MEET = RegisterItem(new Item(new Item.Settings().food(new FoodComponent.Builder().statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, MinersLife.getTickFromSeconds(10)), 1).statusEffect(new StatusEffectInstance(StatusEffects.POISON, MinersLife.getTickFromSeconds(10)), 1).statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, MinersLife.getTickFromSeconds(10)), 1).build())), "wet_meet");
     public static final Item DRIED_MEET = RegisterItem(new Item(new Item.Settings().food(new FoodComponent.Builder().snack().nutrition(4).saturationModifier(1).statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 2), 0.2f).build())), "dried_meet");
+    public static final Item MEATITE = RegisterItem(new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(1).saturationModifier(1).build())), "meatite");
+    public static final Item COOKED_MEATITE = RegisterItem(new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(7).saturationModifier(1).build())), "cooked_meatite");
 
     public static void defineItems() {
 

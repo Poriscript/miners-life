@@ -1,7 +1,7 @@
 {
   "type": "minecraft:ore",
   "config": {
-    "size": 4,
+    "size": 8,
     "discard_chance_on_air_exposure": 0,
     "targets": [
       {
@@ -10,7 +10,16 @@
           "tag": "miners_life:miners_life_replaceable_blocks_overworld"
         },
         "state": {
-          "Name": "miners_life:milkite"
+          "Name": "miners_life:meatite_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:deepslate"
+        },
+        "state": {
+          "Name": "miners_life:meatite_ore"
         }
       }
     ]

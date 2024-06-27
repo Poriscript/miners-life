@@ -61,7 +61,9 @@ public class AdvancementProvider extends FabricAdvancementProvider {
 
         AdvancementEntry getTNTAdvancement = createAdvancement(consumer, craftSandAdvancement, Items.TNT);
 
-        AdvancementEntry getMilkiteAdvancement = createAdvancement(consumer, getSulfurAdvancement, BlockRegistration.MILKITE.asItem());
+        AdvancementEntry getEdibleVineAdvancement = createAdvancement(consumer, getSulfurAdvancement, BlockRegistration.EDIBLE_VINE.asItem());
+        AdvancementEntry getMilkiteAdvancement = createAdvancement(consumer, getEdibleVineAdvancement, BlockRegistration.MILKITE.asItem());
+        AdvancementEntry getMeatiteAdvancement = createAdvancement(consumer, getMilkiteAdvancement, ItemRegistration.MEATITE);
     }
 
     private AdvancementEntry createAdvancement(Consumer<AdvancementEntry> consumer, AdvancementEntry parent, Item icon) {

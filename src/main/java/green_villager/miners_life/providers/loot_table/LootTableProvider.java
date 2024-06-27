@@ -7,8 +7,8 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
 import net.minecraft.data.server.loottable.BlockLootTableGenerator;
 import net.minecraft.loot.LootTable;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.*;
+import net.minecraft.util.Identifier;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
@@ -23,17 +23,18 @@ public class LootTableProvider extends FabricBlockLootTableProvider {
         addDrop(BlockRegistration.CHARCOAL_BLOCK);
         addDrop(BlockRegistration.DRIED_MEET_BLOCK);
 
-        addDrop(BlockRegistration.SULFUR_ORE, ItemRegistration.SULFUR);
-        addDrop(BlockRegistration.DEEPSLATE_SULFUR_ORE, ItemRegistration.SULFUR);
-        addDropWithSilkTouch(BlockRegistration.SULFUR_ORE);
-        addDropWithSilkTouch(BlockRegistration.DEEPSLATE_SULFUR_ORE);
-
-        addDrop(BlockRegistration.NITRE_ORE, ItemRegistration.NITRE);
-        addDrop(BlockRegistration.DEEPSLATE_NITRE_ORE, ItemRegistration.NITRE);
-        addDropWithSilkTouch(BlockRegistration.NITRE_ORE);
-        addDropWithSilkTouch(BlockRegistration.DEEPSLATE_NITRE_ORE);
+        oreDrops(BlockRegistration.SULFUR_ORE, ItemRegistration.SULFUR);
+        oreDrops(BlockRegistration.DEEPSLATE_SULFUR_ORE, ItemRegistration.SULFUR);
+        oreDrops(BlockRegistration.NITRE_ORE, ItemRegistration.NITRE);
+        oreDrops(BlockRegistration.DEEPSLATE_NITRE_ORE, ItemRegistration.NITRE);
 
         addDrop(BlockRegistration.MILKITE);
+
+        addDropWithSilkTouch(BlockRegistration.MEATITE_ORE);
+
+        addDrop(BlockRegistration.EDIBLE_VINE,
+                multifaceGrowthDrops(BlockRegistration.EDIBLE_VINE,
+                        createWithShearsOrSilkTouchCondition()).randomSequenceId(Identifier.ofVanilla("blocks/glow_lichen")));
     }
 
     @Override

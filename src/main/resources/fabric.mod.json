@@ -2,7 +2,7 @@
 	"schemaVersion": 1,
 	"id": "miners_life",
 	"version": "${version}",
-	"name": "Miners Dream",
+	"name": "Miners Life",
 	"description": "This mod was made for minecraft miners. Adds some ores and recipes. Have fun!",
 	"authors": [
 		"GreenVillager"

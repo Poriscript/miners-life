@@ -36,6 +36,16 @@
       "en_us": "Milkite"
     },
     {
+      "key": "block.miners_life.meatite_ore",
+      "ja_jp": "肉鉱石",
+      "en_us": "Meatite Ore"
+    },
+    {
+      "key": "block.miners_life.edible_vine",
+      "ja_jp": "食用つる",
+      "en_us": "Edible Vine"
+    },
+    {
       "key": "item.miners_life.sulfur",
       "ja_jp": "硫黄",
       "en_us": "Sulfur"
@@ -48,12 +58,22 @@
     {
       "key": "item.miners_life.wet_meet",
       "ja_jp": "濡れた肉",
-      "en_us": "Wet meet"
+      "en_us": "Wet Meet"
     },
     {
       "key": "item.miners_life.dried_meet",
       "ja_jp": "干し肉",
-      "en_us": "Dried meet"
+      "en_us": "Dried Meet"
+    },
+    {
+      "key": "item.miners_life.meatite",
+      "ja_jp": "肉石",
+      "en_us": "Meat Stone"
+    },
+    {
+      "key": "item.miners_life.cooked_meatite",
+      "ja_jp": "焼肉石",
+      "en_us": "Cooked meat Stone"
     },
     {
       "key": "advancements.miners_life.root.title",
@@ -136,14 +156,34 @@
       "en_us": "Keep costs low and blast mining."
     },
     {
+      "key": "advancements.miners_life.get_edible_vine.title",
+      "ja_jp": "食べられるつる。",
+      "en_us": "Edible Vine."
+    },
+    {
+      "key": "advancements.miners_life.get_edible_vine.description",
+      "ja_jp": "肉と一緒に食べよう。",
+      "en_us": "Let's try it with meat."
+    },
+    {
       "key": "advancements.miners_life.get_milkite.title",
-      "ja_jp": "栄養豊富な石。",
-      "en_us": "Nutritious stone."
+      "ja_jp": "ミルクが染み出す石。",
+      "en_us": "Stone with milk seeping out of it."
     },
     {
       "key": "advancements.miners_life.get_milkite.description",
       "ja_jp": "バケツを使ってみましょう。",
       "en_us": "Let's use a bucket."
+    },
+    {
+      "key": "advancements.miners_life.get_meatite.title",
+      "ja_jp": "食べられる石。",
+      "en_us": "Edible stone."
+    },
+    {
+      "key": "advancements.miners_life.get_meatite.description",
+      "ja_jp": "ある鉱石を爆破してみましょう。",
+      "en_us": "Let's blow up some ore."
     }
   ]
 }
