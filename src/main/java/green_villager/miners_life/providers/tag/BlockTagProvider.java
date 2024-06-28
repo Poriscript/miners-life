@@ -10,7 +10,6 @@ import net.minecraft.item.ItemConvertible;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.TagKey;
-import net.minecraft.util.Identifier;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -24,10 +23,10 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-        final FabricTagProvider<Block>.FabricTagBuilder miners_life_blocks_tag_builder = getOrCreateTagBuilder(MINERS_LIFE_BLOCKS);
+        final FabricTagProvider<Block>.FabricTagBuilder builder = getOrCreateTagBuilder(MINERS_LIFE_BLOCKS);
 
         for (ItemConvertible block : BlockRegistration.getAllMinersLifeBlocks()) {
-            miners_life_blocks_tag_builder.add((Block) block).setReplace(false);
+            builder.add((Block) block).setReplace(false);
         }
 
         final FabricTagProvider<Block>.FabricTagBuilder miners_life_replaceable_blocks_overworld_tag_builder = getOrCreateTagBuilder(MINERS_LIFE_REPLACEABLE_BLOCKS_OVERWORLD);

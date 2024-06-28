@@ -1,15 +1,13 @@
 package green_villager.miners_life;
 
 import green_villager.miners_life.block.BlockRegistration;
+import green_villager.miners_life.enchantment.EnchantmentRegistration;
 import green_villager.miners_life.item.ItemRegistration;
 import green_villager.miners_life.item_group.ItemGroupRegistration;
 import green_villager.miners_life.world.WorldRegistration;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.item.Item;
-import net.minecraft.loot.function.LootFunctionType;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,6 +29,7 @@ public class MinersLife implements ModInitializer {
         BlockRegistration.defineBlocks();
         ItemRegistration.defineItems();
         ItemGroupRegistration.defineItemGroup();
+        EnchantmentRegistration.defineEnchantment();
         WorldRegistration.defineWorld();
     }
 
