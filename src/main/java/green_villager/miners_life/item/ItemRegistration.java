@@ -8,7 +8,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
 
 import java.lang.reflect.Field;
 import java.util.HashSet;
@@ -29,10 +28,10 @@ public class ItemRegistration {
     }
 
     public static Item RegisterItem(Item new_item, String item_id) {
-        return Registry.register(Registries.ITEM, Identifier.of(MinersLife.MOD_ID, item_id), new_item);
+        return Registry.register(Registries.ITEM, MinersLife.getMinersLifeId(item_id), new_item);
     }
 
-    public static Set<ItemConvertible> getAllMinersDreamItems() {
+    public static Set<ItemConvertible> getAllMinersLifeItems() {
         final Field[] fields = ItemRegistration.class.getDeclaredFields();
         final Set<ItemConvertible> items = new HashSet<>();
 

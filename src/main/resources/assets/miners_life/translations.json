@@ -76,6 +76,11 @@
       "en_us": "Cooked meat Stone"
     },
     {
+      "key": "itemGroup.miners_life.miners_life",
+      "ja_jp": "採掘家の生活",
+      "en_us": "Miners Life"
+    },
+    {
       "key": "advancements.miners_life.root.title",
       "ja_jp": "採掘家の生活",
       "en_us": "Miners Life"

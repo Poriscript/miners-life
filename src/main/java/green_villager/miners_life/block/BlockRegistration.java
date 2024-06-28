@@ -41,12 +41,12 @@ public class BlockRegistration {
     }
 
     public static Block registerBlock(Block new_block, String block_id, Item.Settings settings) {
-        final Identifier id = Identifier.of(MinersLife.MOD_ID, block_id);
+        final Identifier id = MinersLife.getMinersLifeId(block_id);
         Registry.register(Registries.ITEM, id, new BlockItem(new_block, settings));
         return Registry.register(Registries.BLOCK, id, new_block);
     }
 
-    public static Set<ItemConvertible> getAllMinersDreamBlocks() {
+    public static Set<ItemConvertible> getAllMinersLifeBlocks() {
         final Field[] fields = BlockRegistration.class.getDeclaredFields();
         final Set<ItemConvertible> items = new HashSet<>();
 

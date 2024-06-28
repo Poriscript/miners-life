@@ -23,8 +23,8 @@ public class RecipeProvider extends FabricRecipeProvider {
         super(output, registriesFuture);
     }
 
-    public static final Identifier GUNPOWDER_RECIPE_ID = Identifier.of(MinersLife.MOD_ID, "gunpowder_from_crafting");
-    public static final Identifier SAND_RECIPE_ID = Identifier.of(MinersLife.MOD_ID, "sand_from_crafting");
+    public static final Identifier GUNPOWDER_RECIPE_ID = MinersLife.getMinersLifeId("gunpowder_from_crafting");
+    public static final Identifier SAND_RECIPE_ID = MinersLife.getMinersLifeId("sand_from_crafting");
 
     @Override
     public void generate(RecipeExporter exporter) {
@@ -71,24 +71,24 @@ public class RecipeProvider extends FabricRecipeProvider {
         ShapelessRecipeJsonBuilder.create(reverseCategory, baseItem, 9)
                 .input(compactItem)
                 .criterion(FabricRecipeProvider.hasItem(compactItem), FabricRecipeProvider.conditionsFromItem(compactItem))
-                .offerTo(exporter, Identifier.of(MinersLife.MOD_ID, String.format("%s_from_reversing_%s", baseItemName, compactItemName)));
+                .offerTo(exporter, MinersLife.getMinersLifeId(String.format("%s_from_reversing_%s", baseItemName, compactItemName)));
 
         ShapedRecipeJsonBuilder.create(compactingCategory, compactItem, 1)
                 .input('#', baseItem)
                 .pattern("###").pattern("###").pattern("###")
                 .criterion(FabricRecipeProvider.hasItem(baseItem), FabricRecipeProvider.conditionsFromItem(baseItem))
-                .offerTo(exporter, Identifier.of(MinersLife.MOD_ID, String.format("%s_from_compacting_%s", compactItemName, baseItemName)));
+                .offerTo(exporter, MinersLife.getMinersLifeId(String.format("%s_from_compacting_%s", compactItemName, baseItemName)));
     }
 
     private void createSmeltingRecipes(RecipeExporter exporter, RecipeCategory category, ItemConvertible input, ItemConvertible output, float experience, int cookingTime) {
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(input), category, output, experience, cookingTime)
                 .criterion(FabricRecipeProvider.hasItem(input), FabricRecipeProvider.conditionsFromItem(input))
-                .offerTo(exporter, Identifier.of(MinersLife.MOD_ID, String.format("%s_from_smelting_%s", MinersLife.getItemName(output.asItem()), MinersLife.getItemName(input.asItem()))));
+                .offerTo(exporter, MinersLife.getMinersLifeId(String.format("%s_from_smelting_%s", MinersLife.getItemName(output.asItem()), MinersLife.getItemName(input.asItem()))));
     }
 
     private void createSmokingRecipes(RecipeExporter exporter, RecipeCategory category, ItemConvertible input, ItemConvertible output, float experience, int cookingTime) {
         CookingRecipeJsonBuilder.createSmoking(Ingredient.ofItems(input), category, output, experience, cookingTime)
                 .criterion(FabricRecipeProvider.hasItem(input), FabricRecipeProvider.conditionsFromItem(input))
-                .offerTo(exporter, Identifier.of(MinersLife.MOD_ID, String.format("%s_from_smoking_%s", MinersLife.getItemName(output.asItem()), MinersLife.getItemName(input.asItem()))));
+                .offerTo(exporter, MinersLife.getMinersLifeId(String.format("%s_from_smoking_%s", MinersLife.getItemName(output.asItem()), MinersLife.getItemName(input.asItem()))));
     }
 }

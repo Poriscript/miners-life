@@ -1,12 +1,16 @@
 package green_villager.miners_life.providers.loot_table;
 
+import green_villager.miners_life.MinersLife;
 import green_villager.miners_life.block.BlockRegistration;
 import green_villager.miners_life.item.ItemRegistration;
+import green_villager.miners_life.providers.loot_table.function.ExplosionAmplificationLootFunction;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
 import net.minecraft.data.server.loottable.BlockLootTableGenerator;
+import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
+import net.minecraft.loot.function.LootFunctionType;
 import net.minecraft.registry.*;
 import net.minecraft.util.Identifier;
 
@@ -31,6 +35,10 @@ public class LootTableProvider extends FabricBlockLootTableProvider {
         addDrop(BlockRegistration.MILKITE);
 
         addDropWithSilkTouch(BlockRegistration.MEATITE_ORE);
+
+        addDrop(BlockRegistration.MEATITE_ORE, LootTable.builder().pool(LootPool.builder()
+                .conditionally(createSilkTouchCondition())
+                .apply(ExplosionAmplificationLootFunction.builder())));
 
         addDrop(BlockRegistration.EDIBLE_VINE,
                 multifaceGrowthDrops(BlockRegistration.EDIBLE_VINE,

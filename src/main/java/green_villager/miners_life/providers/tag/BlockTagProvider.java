@@ -19,14 +19,14 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
         super(output, completableFuture);
     }
 
-    private static final TagKey<Block> MINERS_LIFE_BLOCKS = TagKey.of(RegistryKeys.BLOCK, Identifier.of(MinersLife.MOD_ID, "miners_life_blocks"));
-    private static final TagKey<Block> MINERS_LIFE_REPLACEABLE_BLOCKS_OVERWORLD = TagKey.of(RegistryKeys.BLOCK, Identifier.of(MinersLife.MOD_ID, "miners_life_replaceable_blocks_overworld"));
+    private static final TagKey<Block> MINERS_LIFE_BLOCKS = TagKey.of(RegistryKeys.BLOCK, MinersLife.getMinersLifeId("miners_life_blocks"));
+    private static final TagKey<Block> MINERS_LIFE_REPLACEABLE_BLOCKS_OVERWORLD = TagKey.of(RegistryKeys.BLOCK, MinersLife.getMinersLifeId("miners_life_replaceable_blocks_overworld"));
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         final FabricTagProvider<Block>.FabricTagBuilder miners_life_blocks_tag_builder = getOrCreateTagBuilder(MINERS_LIFE_BLOCKS);
 
-        for (ItemConvertible block : BlockRegistration.getAllMinersDreamBlocks()) {
+        for (ItemConvertible block : BlockRegistration.getAllMinersLifeBlocks()) {
             miners_life_blocks_tag_builder.add((Block) block).setReplace(false);
         }
 
