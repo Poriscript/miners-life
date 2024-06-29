@@ -23,23 +23,12 @@ public class RecipeProvider extends FabricRecipeProvider {
         super(output, registriesFuture);
     }
 
-    public static final Identifier GUNPOWDER_RECIPE_ID = MinersLife.getMinersLifeId("gunpowder_from_crafting");
     public static final Identifier SAND_RECIPE_ID = MinersLife.getMinersLifeId("sand_from_crafting");
 
     @Override
     public void generate(RecipeExporter exporter) {
         //crafting
         createReversibleCompactingRecipes(exporter, RecipeCategory.MISC, Items.CHARCOAL, RecipeCategory.BUILDING_BLOCKS, BlockRegistration.CHARCOAL_BLOCK.asItem());
-        createReversibleCompactingRecipes(exporter, RecipeCategory.FOOD, ItemRegistration.DRIED_MEET, RecipeCategory.BUILDING_BLOCKS, BlockRegistration.DRIED_MEET_BLOCK.asItem());
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.GUNPOWDER, 5)
-                .pattern("NNN").pattern("SCS").pattern("NNN")
-                .input('N', ItemRegistration.NITRE)
-                .input('S', ItemRegistration.SULFUR)
-                .input('C', Items.CHARCOAL)
-                .criterion(FabricRecipeProvider.hasItem(ItemRegistration.SULFUR), FabricRecipeProvider.conditionsFromItem(ItemRegistration.SULFUR))
-                .criterion(FabricRecipeProvider.hasItem(ItemRegistration.NITRE), FabricRecipeProvider.conditionsFromItem(ItemRegistration.NITRE))
-                .offerTo(exporter, GUNPOWDER_RECIPE_ID);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.SAND, 2)
                 .input(Items.SOUL_SAND)
@@ -48,19 +37,7 @@ public class RecipeProvider extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(Items.END_STONE), FabricRecipeProvider.conditionsFromItem(Items.END_STONE))
                 .offerTo(exporter, SAND_RECIPE_ID);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ItemRegistration.WET_MEET)
-                .input(ItemRegistration.SULFUR)
-                .input(ItemRegistration.NITRE)
-                .input(Items.ROTTEN_FLESH)
-                .input(Items.WATER_BUCKET)
-                .input(Items.COPPER_INGOT)
-                .criterion(FabricRecipeProvider.hasItem(ItemRegistration.SULFUR), FabricRecipeProvider.conditionsFromItem(ItemRegistration.SULFUR))
-                .offerTo(exporter);
-
-        //smelting
-        createSmeltingRecipes(exporter, RecipeCategory.MISC, Items.ROTTEN_FLESH, Items.CHARCOAL, 0.1f, 200);
         //smoking
-        createSmokingRecipes(exporter, RecipeCategory.FOOD, ItemRegistration.WET_MEET, ItemRegistration.DRIED_MEET, 0.1f, 100);
         createSmokingRecipes(exporter, RecipeCategory.FOOD, ItemRegistration.MEATITE, ItemRegistration.COOKED_MEATITE, 0.2f, 150);
     }
 
@@ -78,12 +55,6 @@ public class RecipeProvider extends FabricRecipeProvider {
                 .pattern("###").pattern("###").pattern("###")
                 .criterion(FabricRecipeProvider.hasItem(baseItem), FabricRecipeProvider.conditionsFromItem(baseItem))
                 .offerTo(exporter, MinersLife.getMinersLifeId(String.format("%s_from_compacting_%s", compactItemName, baseItemName)));
-    }
-
-    private void createSmeltingRecipes(RecipeExporter exporter, RecipeCategory category, ItemConvertible input, ItemConvertible output, float experience, int cookingTime) {
-        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(input), category, output, experience, cookingTime)
-                .criterion(FabricRecipeProvider.hasItem(input), FabricRecipeProvider.conditionsFromItem(input))
-                .offerTo(exporter, MinersLife.getMinersLifeId(String.format("%s_from_smelting_%s", MinersLife.getItemName(output.asItem()), MinersLife.getItemName(input.asItem()))));
     }
 
     private void createSmokingRecipes(RecipeExporter exporter, RecipeCategory category, ItemConvertible input, ItemConvertible output, float experience, int cookingTime) {

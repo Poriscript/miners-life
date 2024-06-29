@@ -6,31 +6,6 @@
       "en_us": "Block of Charcoal"
     },
     {
-      "key": "block.miners_life.dried_meet_block",
-      "ja_jp": "干し肉ブロック",
-      "en_us": "Block of Dried meet"
-    },
-    {
-      "key": "block.miners_life.sulfur_ore",
-      "ja_jp": "硫黄鉱石",
-      "en_us": "Sulfur Ore"
-    },
-    {
-      "key": "block.miners_life.nitre_ore",
-      "ja_jp": "硝石鉱石",
-      "en_us": "Nitre Ore"
-    },
-    {
-      "key": "block.miners_life.deepslate_sulfur_ore",
-      "ja_jp": "深層硫黄鉱石",
-      "en_us": "Deepslate Sulfur Ore"
-    },
-    {
-      "key": "block.miners_life.deepslate_nitre_ore",
-      "ja_jp": "深層硝石鉱石",
-      "en_us": "Deepslate Nitre Ore"
-    },
-    {
       "key": "block.miners_life.milkite",
       "ja_jp": "乳鉱石",
       "en_us": "Milkite"
@@ -44,26 +19,6 @@
       "key": "block.miners_life.edible_vine",
       "ja_jp": "食用つる",
       "en_us": "Edible Vine"
-    },
-    {
-      "key": "item.miners_life.sulfur",
-      "ja_jp": "硫黄",
-      "en_us": "Sulfur"
-    },
-    {
-      "key": "item.miners_life.nitre",
-      "ja_jp": "硝石",
-      "en_us": "Nitre"
-    },
-    {
-      "key": "item.miners_life.wet_meet",
-      "ja_jp": "濡れた肉",
-      "en_us": "Wet Meet"
-    },
-    {
-      "key": "item.miners_life.dried_meet",
-      "ja_jp": "干し肉",
-      "en_us": "Dried Meet"
     },
     {
       "key": "item.miners_life.meatite",
@@ -89,56 +44,6 @@
       "key": "advancements.miners_life.root.description",
       "ja_jp": "掘る、焼く、集める",
       "en_us": "Digging, Smelting, Collecting"
-    },
-    {
-      "key": "advancements.miners_life.get_sulfur.title",
-      "ja_jp": "変なにおいだ。",
-      "en_us": "It is weird smell."
-    },
-    {
-      "key": "advancements.miners_life.get_sulfur.description",
-      "ja_jp": "何かの薬品になるかも",
-      "en_us": "It could be some kind of chemical."
-    },
-    {
-      "key": "advancements.miners_life.get_wet_meet.title",
-      "ja_jp": "雑菌はなくなったかな？",
-      "en_us": "Are the germs gone ?"
-    },
-    {
-      "key": "advancements.miners_life.get_wet_meet.description",
-      "ja_jp": "濡れたままでは食べられない",
-      "en_us": "Cannot eat because it is wet."
-    },
-    {
-      "key": "advancements.miners_life.get_dried_meet.title",
-      "ja_jp": "食べるのが待ち遠しい！",
-      "en_us": "Can't wait to eat!"
-    },
-    {
-      "key": "advancements.miners_life.get_dried_meet.description",
-      "ja_jp": "元気100パーセント！",
-      "en_us": "It gives me a lot of energy."
-    },
-    {
-      "key": "advancements.miners_life.get_nitre.title",
-      "ja_jp": "白っぽい石を発見！",
-      "en_us": "Found whitish stones!"
-    },
-    {
-      "key": "advancements.miners_life.get_nitre.description",
-      "ja_jp": "なにかと混ぜて使ってみよう。",
-      "en_us": "Let's mix it with something else."
-    },
-    {
-      "key": "advancements.miners_life.craft_gunpowder.title",
-      "ja_jp": "激しく反応します。",
-      "en_us": "It reacts intensely."
-    },
-    {
-      "key": "advancements.miners_life.craft_gunpowder.description",
-      "ja_jp": "TNTを量産しよう。",
-      "en_us": "Let's mass produce TNT."
     },
     {
       "key": "advancements.miners_life.craft_sand.title",

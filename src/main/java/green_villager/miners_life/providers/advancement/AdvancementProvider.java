@@ -43,27 +43,16 @@ public class AdvancementProvider extends FabricAdvancementProvider {
                 .criterion("begin_miners_life", InventoryChangedCriterion.Conditions.items(Items.COBBLESTONE))
                 .build(consumer, String.format("%s:root", MinersLife.MOD_ID));
 
-        AdvancementEntry getSulfurAdvancement = createAdvancement(consumer, rootAdvancement, ItemRegistration.SULFUR);
-        AdvancementEntry getWetMeetAdvancement = createAdvancement(consumer, getSulfurAdvancement, ItemRegistration.WET_MEET);
-        AdvancementEntry getDriedMeetAdvancement = createAdvancement(consumer, getWetMeetAdvancement, ItemRegistration.DRIED_MEET);
-
-        AdvancementEntry getNitreAdvancement = createAdvancement(consumer, rootAdvancement, ItemRegistration.NITRE);
-
-        AdvancementEntry craftGunPowderAdvancement = createAdvancement(consumer, getNitreAdvancement, Items.GUNPOWDER,
-                Enums.ActionTypes.Craft,
-                RecipeUnlockedCriterion.create(RecipeProvider.GUNPOWDER_RECIPE_ID),
-                AdvancementRewards.Builder.experience(128).build());
-
-        AdvancementEntry craftSandAdvancement = createAdvancement(consumer, craftGunPowderAdvancement, Items.SAND,
+        AdvancementEntry craftSandAdvancement = createAdvancement(consumer, rootAdvancement, Items.SAND,
                 Enums.ActionTypes.Craft,
                 RecipeUnlockedCriterion.create(RecipeProvider.SAND_RECIPE_ID),
                 AdvancementRewards.Builder.experience(128).build());
 
         AdvancementEntry getTNTAdvancement = createAdvancement(consumer, craftSandAdvancement, Items.TNT);
 
-        AdvancementEntry getEdibleVineAdvancement = createAdvancement(consumer, getSulfurAdvancement, BlockRegistration.EDIBLE_VINE.asItem());
+        AdvancementEntry getMeatiteAdvancement = createAdvancement(consumer, rootAdvancement, ItemRegistration.MEATITE);
+        AdvancementEntry getEdibleVineAdvancement = createAdvancement(consumer, getMeatiteAdvancement, BlockRegistration.EDIBLE_VINE.asItem());
         AdvancementEntry getMilkiteAdvancement = createAdvancement(consumer, getEdibleVineAdvancement, BlockRegistration.MILKITE.asItem());
-        AdvancementEntry getMeatiteAdvancement = createAdvancement(consumer, getMilkiteAdvancement, ItemRegistration.MEATITE);
     }
 
     private AdvancementEntry createAdvancement(Consumer<AdvancementEntry> consumer, AdvancementEntry parent, Item icon) {

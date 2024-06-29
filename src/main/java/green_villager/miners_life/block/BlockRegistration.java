@@ -23,12 +23,6 @@ import java.util.Set;
 public class BlockRegistration {
 
     public static final Block CHARCOAL_BLOCK = registerBlock(new Block(AbstractBlock.Settings.copy(Blocks.COAL_BLOCK)), "charcoal_block");
-    public static final Block DRIED_MEET_BLOCK = registerBlock(new Block(AbstractBlock.Settings.copy(Blocks.SPONGE)), "dried_meet_block");
-
-    public static final Block SULFUR_ORE = registerBlock(new Block(AbstractBlock.Settings.copy(Blocks.LAPIS_ORE)), "sulfur_ore");
-    public static final Block DEEPSLATE_SULFUR_ORE = registerBlock(new Block(AbstractBlock.Settings.copy(Blocks.DEEPSLATE_LAPIS_ORE)), "deepslate_sulfur_ore");
-    public static final Block NITRE_ORE = registerBlock(new Block(AbstractBlock.Settings.copy(Blocks.LAPIS_ORE)), "nitre_ore");
-    public static final Block DEEPSLATE_NITRE_ORE = registerBlock(new Block(AbstractBlock.Settings.copy(Blocks.DEEPSLATE_LAPIS_ORE)), "deepslate_nitre_ore");
 
     public static final Block MILKITE = registerBlock(new MilkiteBlock(AbstractBlock.Settings.copy(Blocks.ANDESITE)), "milkite");
     public static final Block MEATITE_ORE = registerBlock(new MeatiteOre(AbstractBlock.Settings.copy(Blocks.BASALT).strength(0.02f)), "meatite_ore");

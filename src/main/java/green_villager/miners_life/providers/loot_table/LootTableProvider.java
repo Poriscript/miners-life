@@ -34,12 +34,6 @@ public class LootTableProvider extends FabricBlockLootTableProvider {
     @Override
     public void generate() {
         addDrop(BlockRegistration.CHARCOAL_BLOCK);
-        addDrop(BlockRegistration.DRIED_MEET_BLOCK);
-
-        oreDrops(BlockRegistration.SULFUR_ORE, ItemRegistration.SULFUR);
-        oreDrops(BlockRegistration.DEEPSLATE_SULFUR_ORE, ItemRegistration.SULFUR);
-        oreDrops(BlockRegistration.NITRE_ORE, ItemRegistration.NITRE);
-        oreDrops(BlockRegistration.DEEPSLATE_NITRE_ORE, ItemRegistration.NITRE);
 
         addDrop(BlockRegistration.MILKITE);
 
