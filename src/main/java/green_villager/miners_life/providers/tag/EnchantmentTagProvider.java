@@ -22,8 +22,6 @@ public class EnchantmentTagProvider extends FabricTagProvider.EnchantmentTagProv
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         final FabricTagProvider<Enchantment>.FabricTagBuilder builder = getOrCreateTagBuilder(EXPLOSION_EXCLUSIVE_SET);
-
         builder.add(Enchantments.SILK_TOUCH);
-//        builder.add(ExplosiveMiningEnchantment.EXPLOSIVE_MINING);
     }
 }

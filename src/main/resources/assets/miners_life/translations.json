@@ -94,6 +94,11 @@
       "key": "advancements.miners_life.get_meatite.description",
       "ja_jp": "ある鉱石を爆破してみましょう。",
       "en_us": "Let's blow up some ore."
+    },
+    {
+      "key": "enchantment.miners_life.explosive_mining",
+      "ja_jp": "爆破採掘",
+      "en_us": "Explosive Mining"
     }
   ]
 }

@@ -1,11 +1,40 @@
 package green_villager.miners_life.enchantment.definition;
 
-public class ExplosiveMiningEnchantment {
-//    public static final Enchantment EXPLOSIVE_MINING_ENCHANTMENT = Enchantment.builder(Enchantment.definition(registryEntryLookup3.getOrThrow(ItemTags.PICKAXES), Optional.empty(), 10, 5, Enchantment.leveledCost(1, 11), Enchantment.leveledCost(21, 11), 1, new AttributeModifierSlot[]{AttributeModifierSlot.MAINHAND})).exclusiveSet(registryEntryLookup2.getOrThrow(EnchantmentTags.DAMAGE_EXCLUSIVE_SET)).addEffect(EnchantmentEffectComponentTypes.DAMAGE, new AddEnchantmentEffect(EnchantmentLevelBasedValue.linear(1.0F, 0.5F)));
-//    public static final Enchantment EXPLOSIVE_MINING = Enchantment.builder(Enchantment.definition(registryEntryLookup3.getOrThrow(ItemTags.PICKAXES), 10, 5, Enchantment.leveledCost(1, 11), Enchantment.leveledCost(21, 11), 1, new AttributeModifierSlot[]{AttributeModifierSlot.MAINHAND})).exclusiveSet(registryEntryLookup2.getOrThrow(EnchantmentTagProvider.EXPLOSION_EXCLUSIVE_SET)).addEffect(EnchantmentEffectComponentTypes.POST_ATTACK, new AddEnchantmentEffect(EnchantmentLevelBasedValue.linear(1.0F, 0.5F)));
+import com.mojang.serialization.MapCodec;
+import green_villager.miners_life.MinersLife;
+import net.minecraft.block.Block;
+import net.minecraft.enchantment.EnchantmentEffectContext;
+import net.minecraft.enchantment.Enchantments;
+import net.minecraft.enchantment.effect.EnchantmentEntityEffect;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.decoration.DisplayEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.*;
+import net.minecraft.server.PlayerManager;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.World;
+import net.minecraft.world.explosion.Explosion;
 
-    public ExplosiveMiningEnchantment() {
+import java.util.function.Consumer;
 
+public record ExplosiveMiningEnchantment() implements EnchantmentEntityEffect {
+    private static final ExplosiveMiningEnchantment INSTANCE = new ExplosiveMiningEnchantment();
+    public static final MapCodec<ExplosiveMiningEnchantment> CODEC = MapCodec.unit(INSTANCE);
+
+    @Override
+    public void apply(ServerWorld world, int level, EnchantmentEffectContext context, Entity user, Vec3d pos) {
+        Consumer<Item> result = context.onBreak().andThen(item -> {
+
+        });
+    }
+
+    @Override
+    public MapCodec<? extends EnchantmentEntityEffect> getCodec() {
+        return CODEC;
     }
 }
 

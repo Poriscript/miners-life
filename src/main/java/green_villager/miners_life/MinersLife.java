@@ -1,6 +1,7 @@
 package green_villager.miners_life;
 
 import green_villager.miners_life.block.BlockRegistration;
+import green_villager.miners_life.callback.CallbackRegistration;
 import green_villager.miners_life.enchantment.EnchantmentRegistration;
 import green_villager.miners_life.item.ItemRegistration;
 import green_villager.miners_life.item_group.ItemGroupRegistration;
@@ -31,6 +32,7 @@ public class MinersLife implements ModInitializer {
         ItemGroupRegistration.defineItemGroup();
         EnchantmentRegistration.defineEnchantment();
         WorldRegistration.defineWorld();
+        CallbackRegistration.defineCallback();
     }
 
     // Utilities
