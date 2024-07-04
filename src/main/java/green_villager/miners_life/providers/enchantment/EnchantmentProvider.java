@@ -1,7 +1,7 @@
 package green_villager.miners_life.providers.enchantment;
 
 import green_villager.miners_life.MinersLife;
-import green_villager.miners_life.resource.config.ConfigSchema;
+import green_villager.miners_life.resource.ConfigSchema;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
 import net.fabricmc.loader.api.FabricLoader;
@@ -51,22 +51,9 @@ public class EnchantmentProvider extends FabricDynamicRegistryProvider {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup registries, Entries entries) {
         try {
-            // build/resources/main
-            final Path main = FabricLoader
-                    .getInstance()
-                    .getModContainer(MinersLife.MOD_ID)
-                    .orElseThrow()
-                    .getRootPaths()
-                    .stream()
-                    .reduce((result, element) -> element.toString().contains("resources") ? element : result)
-                    .orElseThrow();
-
-            final Path configPath = main.resolve("data/miners_life/config.json");
-            final ConfigSchema config = MinersLife.GSON.fromJson(Files.readString(configPath), ConfigSchema.class);
-
             final List<RegistryEntry<Item>> registryEntryList = new ArrayList<>();
 
-            for (String item : config.supportedItems) {
+            for (String item : MinersLife.DEFAULT_CONFIG.supportedItems) {
                 registryEntryList.add(Registries.ITEM.getEntry(Identifier.of(item)).orElseThrow());
             }
 
@@ -92,7 +79,7 @@ public class EnchantmentProvider extends FabricDynamicRegistryProvider {
 
             entries.add(key, explosionMiningEnchantment);
 
-        } catch (IOException | ExecutionException | InterruptedException e) {
+        } catch (ExecutionException | InterruptedException e) {
             throw new RuntimeException(e);
         }
     }

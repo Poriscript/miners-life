@@ -30,7 +30,7 @@ public class DataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(ModelProvider::new);
         //loot tables
         pack.addProvider(LootTableProvider::new);
-        //config
+        //enchantments
         pack.addProvider(EnchantmentProvider::new);
     }
 }
