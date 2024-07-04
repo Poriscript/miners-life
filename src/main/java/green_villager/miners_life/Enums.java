@@ -1,13 +1,21 @@
 package green_villager.miners_life;
 
-public class Enums{
+public class Enums {
     public enum Languages {
-        JA_JP,
-        EN_US,
+        Ja_Jp,
+        En_Us,
     }
 
-    public enum ActionTypes{
+    public enum ActionTypes {
         Get,
         Craft
+    }
+
+    public enum TranslationKeyRoots {
+        Block,
+        Item,
+        ItemGroup,
+        Advancements,
+        Enchantment,
     }
 }

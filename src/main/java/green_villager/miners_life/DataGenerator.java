@@ -1,6 +1,7 @@
 package green_villager.miners_life;
 
 import green_villager.miners_life.providers.advancement.AdvancementProvider;
+import green_villager.miners_life.providers.enchantment.EnchantmentProvider;
 import green_villager.miners_life.providers.loot_table.LootTableProvider;
 import green_villager.miners_life.providers.model.ModelProvider;
 import green_villager.miners_life.providers.recipe.RecipeProvider;
@@ -29,5 +30,7 @@ public class DataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(ModelProvider::new);
         //loot tables
         pack.addProvider(LootTableProvider::new);
+        //config
+        pack.addProvider(EnchantmentProvider::new);
     }
 }

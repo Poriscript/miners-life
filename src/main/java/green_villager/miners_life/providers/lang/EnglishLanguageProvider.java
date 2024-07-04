@@ -9,7 +9,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class EnglishLanguageProvider extends FabricLanguageProvider {
 
-    private static final Enums.Languages LANGUAGE_CODE = Enums.Languages.EN_US;
+    private static final Enums.Languages LANGUAGE_CODE = Enums.Languages.En_Us;
 
     public EnglishLanguageProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
         super(dataOutput, LANGUAGE_CODE.name().toLowerCase(), registryLookup);
@@ -17,6 +17,6 @@ public class EnglishLanguageProvider extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
-        TranslationProviderFactory.generate(dataOutput, translationBuilder, LANGUAGE_CODE);
+        new TranslationProviderFactory(LANGUAGE_CODE).generate(dataOutput, translationBuilder);
     }
 }
