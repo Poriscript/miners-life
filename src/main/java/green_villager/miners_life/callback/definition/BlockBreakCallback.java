@@ -52,10 +52,10 @@ public class BlockBreakCallback {
             final RegistryEntry<Enchantment> explosive_mining_enchantment = explosive_mining_enchantment_filtered_list.getFirst();
 
             final int level = tool.getEnchantments().getLevel(explosive_mining_enchantment);
-            Direction horizontal_facing_direction = player.getFacing();
-            BlockPos explosion_position = pos.offset(horizontal_facing_direction, level);
+            final Direction horizontal_facing_direction = player.getFacing();
+            final BlockPos explosion_position = pos.offset(horizontal_facing_direction, level);
 
-            Explosion explosion = world.createExplosion(
+            final Explosion explosion = world.createExplosion(
                     null,
                     explosion_position.getX(),
                     explosion_position.getY(),

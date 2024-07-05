@@ -53,10 +53,6 @@ public class MinersLife implements ModInitializer {
     }
 
     // Utilities
-    public static int getTickFromSeconds(int seconds) {
-        return seconds * 20;
-    }
-
     public static String getItemName(Item item) {
         return item.getName().getString().toLowerCase()
                 .replaceAll(".*\\.", "")
