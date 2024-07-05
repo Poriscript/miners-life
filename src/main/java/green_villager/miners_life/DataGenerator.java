@@ -9,6 +9,7 @@ import green_villager.miners_life.providers.tag.BlockTagProvider;
 import green_villager.miners_life.providers.tag.ItemTagProvider;
 import green_villager.miners_life.providers.lang.EnglishLanguageProvider;
 import green_villager.miners_life.providers.lang.JapaneseLanguageProvider;
+import green_villager.miners_life.providers.worldgen.WorldGenProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
@@ -32,5 +33,7 @@ public class DataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(LootTableProvider::new);
         //enchantments
         pack.addProvider(EnchantmentProvider::new);
+        //world generation
+        pack.addProvider(WorldGenProvider::new);
     }
 }

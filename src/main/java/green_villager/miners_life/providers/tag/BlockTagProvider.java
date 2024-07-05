@@ -19,7 +19,7 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
     }
 
     private static final TagKey<Block> MINERS_LIFE_BLOCKS = TagKey.of(RegistryKeys.BLOCK, MinersLife.getMinersLifeId("miners_life_blocks"));
-    private static final TagKey<Block> MINERS_LIFE_REPLACEABLE_BLOCKS_OVERWORLD = TagKey.of(RegistryKeys.BLOCK, MinersLife.getMinersLifeId("miners_life_replaceable_blocks_overworld"));
+    public static final TagKey<Block> MINERS_LIFE_REPLACEABLE_BLOCKS_OVERWORLD = TagKey.of(RegistryKeys.BLOCK, MinersLife.getMinersLifeId("miners_life_replaceable_blocks_overworld"));
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
@@ -33,7 +33,6 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
         miners_life_replaceable_blocks_overworld_tag_builder.add(Blocks.ANDESITE);
         miners_life_replaceable_blocks_overworld_tag_builder.add(Blocks.DIORITE);
         miners_life_replaceable_blocks_overworld_tag_builder.add(Blocks.GRANITE);
-        miners_life_replaceable_blocks_overworld_tag_builder.add(Blocks.GRAVEL);
         miners_life_replaceable_blocks_overworld_tag_builder.add(Blocks.TUFF);
     }
 }

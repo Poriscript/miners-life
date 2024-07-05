@@ -9,15 +9,15 @@ import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.PlacedFeature;
 
 public class WorldRegistration {
-    public static final RegistryKey<PlacedFeature> MILKITE_FEATURE_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, MinersLife.getMinersLifeId("milkite_pf"));
-    public static final RegistryKey<PlacedFeature> MEATITE_ORE_FEATURE_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, MinersLife.getMinersLifeId("meatite_ore_pf"));
+    public static final RegistryKey<PlacedFeature> MILKITE_PLACED_FEATURE_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, MinersLife.getMinersLifeId("milkite_pf"));
+    public static final RegistryKey<PlacedFeature> MEATITE_ORE_PLACED_FEATURE_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, MinersLife.getMinersLifeId("meatite_ore_pf"));
 
-    public static final RegistryKey<PlacedFeature> EDIBLE_VINE_FEATURE_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, MinersLife.getMinersLifeId("edible_vine_pf"));
+    public static final RegistryKey<PlacedFeature> EDIBLE_VINE_PLACED_FEATURE_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, MinersLife.getMinersLifeId("edible_vine_pf"));
 
     public static void defineWorld() {
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, MILKITE_FEATURE_KEY);
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, MEATITE_ORE_FEATURE_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, MILKITE_PLACED_FEATURE_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, MEATITE_ORE_PLACED_FEATURE_KEY);
 
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_DECORATION, EDIBLE_VINE_FEATURE_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_DECORATION, EDIBLE_VINE_PLACED_FEATURE_KEY);
     }
 }

@@ -76,7 +76,6 @@ public class EnchantmentProvider extends FabricDynamicRegistryProvider {
                     .build(MinersLife.getMinersLifeId(enchantmentName));
 
             final RegistryKey<Enchantment> key = RegistryKey.of(RegistryKeys.ENCHANTMENT, MinersLife.getMinersLifeId(enchantmentName));
-
             entries.add(key, explosionMiningEnchantment);
 
         } catch (ExecutionException | InterruptedException e) {

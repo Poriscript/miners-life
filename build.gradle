@@ -48,7 +48,7 @@ processResources {
 		expand "version": project.version
 	}
 
-	duplicatesStrategy = DuplicatesStrategy.INCLUDE
+//	duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
 
 tasks.withType(JavaCompile).configureEach {
