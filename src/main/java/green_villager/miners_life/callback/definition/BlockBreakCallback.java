@@ -2,7 +2,15 @@ package green_villager.miners_life.callback.definition;
 
 import green_villager.miners_life.MinersLife;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.entity.TntEntity;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageSources;
+import net.minecraft.entity.damage.DamageTypes;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -11,10 +19,14 @@ import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
+import net.minecraft.world.explosion.ExplosionBehavior;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 public class BlockBreakCallback {
@@ -55,12 +67,36 @@ public class BlockBreakCallback {
             final Direction horizontal_facing_direction = player.getFacing();
             final BlockPos explosion_position = pos.offset(horizontal_facing_direction, level);
 
+            ExplosionBehavior behavior = new ExplosionBehavior() {
+                private List<Block> unbreakableBlocks = List.of(
+                        Blocks.BEDROCK,
+                        Blocks.NETHER_PORTAL,
+                        Blocks.END_PORTAL_FRAME,
+                        Blocks.END_PORTAL,
+                        Blocks.LAVA,
+                        Blocks.WATER,
+                        Blocks.OBSIDIAN,
+                        Blocks.CRYING_OBSIDIAN
+                );
+
+                @Override
+                public boolean canDestroyBlock(Explosion explosion, BlockView world, BlockPos pos, BlockState state, float power) {
+                    return unbreakableBlocks.contains(state.getBlock()) ? false : super.canDestroyBlock(explosion, world, pos, state, power);
+                }
+
+                @Override
+                public Optional<Float> getBlastResistance(Explosion explosion, BlockView world, BlockPos pos, BlockState blockState, FluidState fluidState) {
+                    return unbreakableBlocks.contains(blockState.getBlock()) ? Optional.empty() : super.getBlastResistance(explosion, world, pos, blockState, fluidState);
+                }
+            };
+
             final Explosion explosion = world.createExplosion(
                     null,
-                    explosion_position.getX(),
-                    explosion_position.getY(),
-                    explosion_position.getZ(),
+                    Explosion.createDamageSource(world, null),
+                    behavior,
+                    Vec3d.of(explosion_position),
                     MathHelper.lerp(level / 5f, 2f, 6f),
+                    false,
                     World.ExplosionSourceType.TNT);
         });
     }
