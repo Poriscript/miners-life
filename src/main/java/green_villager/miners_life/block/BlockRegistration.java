@@ -1,11 +1,10 @@
 package green_villager.miners_life.block;
 
 import green_villager.miners_life.MinersLife;
-import green_villager.miners_life.block.definition.MeatiteOre;
-import green_villager.miners_life.block.definition.MilkiteBlock;
+import green_villager.miners_life.block.definition.DropItemByExplosionBlock;
+import green_villager.miners_life.item.ItemRegistration;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.block.*;
-import net.minecraft.component.type.FoodComponent;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
@@ -21,22 +20,16 @@ public class BlockRegistration {
 
     public static final Block CHARCOAL_BLOCK = registerBlock(new Block(AbstractBlock.Settings.copy(Blocks.COAL_BLOCK)), "charcoal_block");
 
-    public static final Block MILKITE = registerBlock(new MilkiteBlock(AbstractBlock.Settings.copy(Blocks.ANDESITE)), "milkite");
-    public static final Block MEATITE_ORE = registerBlock(new MeatiteOre(AbstractBlock.Settings.copy(Blocks.BASALT).strength(0.02f)), "meatite_ore");
-
-    public static final Block EDIBLE_VINE = registerBlock(new GlowLichenBlock(AbstractBlock.Settings.copy(Blocks.GLOW_LICHEN).luminance(GlowLichenBlock.getLuminanceSupplier(0))), "edible_vine", new Item.Settings().food(new FoodComponent.Builder().alwaysEdible().nutrition(1).saturationModifier(7).build()));
+    public static final Block MEATITE_ORE = registerBlock(new DropItemByExplosionBlock(AbstractBlock.Settings.copy(Blocks.BASALT).strength(0.02f), ItemRegistration.MEATITE), "meatite_ore");
+    public static final Block VEGETABLITE_ORE = registerBlock(new DropItemByExplosionBlock(AbstractBlock.Settings.copy(Blocks.BASALT).strength(0.02f), ItemRegistration.VEGETABLITE), "vegetablite_ore");
 
     public static void defineBlocks() {
         FuelRegistry.INSTANCE.add(CHARCOAL_BLOCK, 15200);
     }
 
     public static Block registerBlock(Block new_block, String block_id) {
-        return registerBlock(new_block, block_id, new Item.Settings());
-    }
-
-    public static Block registerBlock(Block new_block, String block_id, Item.Settings settings) {
         final Identifier id = MinersLife.getMinersLifeId(block_id);
-        Registry.register(Registries.ITEM, id, new BlockItem(new_block, settings));
+        Registry.register(Registries.ITEM, id, new BlockItem(new_block, new Item.Settings()));
         return Registry.register(Registries.BLOCK, id, new_block);
     }
 

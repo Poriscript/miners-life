@@ -43,16 +43,15 @@ public class AdvancementProvider extends FabricAdvancementProvider {
                 .criterion("begin_miners_life", InventoryChangedCriterion.Conditions.items(Items.COBBLESTONE))
                 .build(consumer, String.format("%s:root", MinersLife.MOD_ID));
 
-        AdvancementEntry craftSandAdvancement = createAdvancement(consumer, rootAdvancement, Items.SAND,
+        final AdvancementEntry craftSandAdvancement = createAdvancement(consumer, rootAdvancement, Items.SAND,
                 Enums.ActionTypes.Craft,
                 RecipeUnlockedCriterion.create(RecipeProvider.SAND_RECIPE_ID),
                 AdvancementRewards.Builder.experience(128).build());
 
-        AdvancementEntry getTNTAdvancement = createAdvancement(consumer, craftSandAdvancement, Items.TNT);
+        final AdvancementEntry getTNTAdvancement = createAdvancement(consumer, craftSandAdvancement, Items.TNT);
 
-        AdvancementEntry getMeatiteAdvancement = createAdvancement(consumer, rootAdvancement, ItemRegistration.MEATITE);
-        AdvancementEntry getEdibleVineAdvancement = createAdvancement(consumer, getMeatiteAdvancement, BlockRegistration.EDIBLE_VINE.asItem());
-        AdvancementEntry getMilkiteAdvancement = createAdvancement(consumer, getEdibleVineAdvancement, BlockRegistration.MILKITE.asItem());
+        final AdvancementEntry getMeatiteAdvancement = createAdvancement(consumer, rootAdvancement, ItemRegistration.MEATITE);
+        final AdvancementEntry getVegetabliteAdvancement = createAdvancement(consumer, getMeatiteAdvancement, ItemRegistration.VEGETABLITE);
     }
 
     private AdvancementEntry createAdvancement(Consumer<AdvancementEntry> consumer, AdvancementEntry parent, Item icon) {

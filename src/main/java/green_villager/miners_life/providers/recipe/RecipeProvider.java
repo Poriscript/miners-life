@@ -39,6 +39,7 @@ public class RecipeProvider extends FabricRecipeProvider {
 
         //smoking
         createSmokingRecipes(exporter, RecipeCategory.FOOD, ItemRegistration.MEATITE, ItemRegistration.COOKED_MEATITE, 0.2f, 150);
+        createSmokingRecipes(exporter, RecipeCategory.FOOD, ItemRegistration.VEGETABLITE, ItemRegistration.COOKED_VEGETABLITE, 0.2f, 150);
     }
 
     private void createReversibleCompactingRecipes(RecipeExporter exporter, RecipeCategory reverseCategory, ItemConvertible baseItem, RecipeCategory compactingCategory, ItemConvertible compactItem) {

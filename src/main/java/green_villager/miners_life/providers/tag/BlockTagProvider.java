@@ -34,5 +34,6 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
         miners_life_replaceable_blocks_overworld_tag_builder.add(Blocks.DIORITE);
         miners_life_replaceable_blocks_overworld_tag_builder.add(Blocks.GRANITE);
         miners_life_replaceable_blocks_overworld_tag_builder.add(Blocks.TUFF);
+        miners_life_replaceable_blocks_overworld_tag_builder.add(Blocks.GRAVEL);
     }
 }

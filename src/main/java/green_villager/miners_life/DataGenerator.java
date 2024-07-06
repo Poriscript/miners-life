@@ -8,14 +8,13 @@ import green_villager.miners_life.providers.tag.BlockTagProvider;
 import green_villager.miners_life.providers.tag.ItemTagProvider;
 import green_villager.miners_life.providers.lang.EnglishLanguageProvider;
 import green_villager.miners_life.providers.lang.JapaneseLanguageProvider;
-import green_villager.miners_life.providers.worldgen.WorldGenProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
 public class DataGenerator implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
-        FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
+        final FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
         //languages
         pack.addProvider(EnglishLanguageProvider::new);
         pack.addProvider(JapaneseLanguageProvider::new);
@@ -30,7 +29,5 @@ public class DataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(ModelProvider::new);
         //loot tables
         pack.addProvider(LootTableProvider::new);
-        //world generation
-        pack.addProvider(WorldGenProvider::new);
     }
 }

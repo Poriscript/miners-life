@@ -6,6 +6,7 @@ import green_villager.miners_life.item.ItemRegistration;
 import green_villager.miners_life.item_group.ItemGroupRegistration;
 import green_villager.miners_life.world.WorldRegistration;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
@@ -35,6 +36,12 @@ public class MinersLife implements ModInitializer {
     // Utilities
     public static String getItemName(Item item) {
         return item.getName().getString().toLowerCase()
+                .replaceAll(".*\\.", "")
+                .replaceAll(" ", "_");
+    }
+
+    public static String getBlockName(Block block) {
+        return block.getName().getString().toLowerCase()
                 .replaceAll(".*\\.", "")
                 .replaceAll(" ", "_");
     }

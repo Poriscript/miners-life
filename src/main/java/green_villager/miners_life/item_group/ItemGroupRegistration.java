@@ -24,7 +24,7 @@ public class ItemGroupRegistration {
         all_items.addAll(ItemRegistration.getAllMinersLifeItems());
         all_items.addAll(BlockRegistration.getAllMinersLifeBlocks());
 
-        final ItemGroup MINERS_LIFE_ITEM_GROUP = registerItemGroup(Blocks.BRICKS, Text.translatable("itemGroup.miners_life.miners_life"), all_items, MinersLife.getMinersLifeId("miners_life"));
+        final ItemGroup MINERS_LIFE_ITEM_GROUP = registerItemGroup(Blocks.BRICKS, Text.translatable("itemgroup.miners_life.miners_life"), all_items, MinersLife.getMinersLifeId("miners_life"));
     }
 
     public static ItemGroup registerItemGroup(ItemConvertible icon_supplier, MutableText display_name_translation_key, Set<ItemConvertible> items, Identifier id) {
