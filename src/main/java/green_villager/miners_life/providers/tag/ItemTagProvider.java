@@ -4,8 +4,15 @@ import green_villager.miners_life.MinersLife;
 import green_villager.miners_life.item.ItemRegistration;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.item.v1.EnchantmentEvents;
+import net.minecraft.block.EnchantingTableBlock;
+import net.minecraft.block.entity.EnchantingTableBlockEntity;
+import net.minecraft.enchantment.Enchantments;
+import net.minecraft.enchantment.provider.EnchantmentProviders;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.TagKey;
@@ -22,10 +29,10 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-        FabricTagProvider<Item>.FabricTagBuilder builder = getOrCreateTagBuilder(MINERS_LIFE_ITEMS);
+        final FabricTagProvider<Item>.FabricTagBuilder miners_life_items_builder = getOrCreateTagBuilder(MINERS_LIFE_ITEMS);
 
         for (ItemConvertible item : ItemRegistration.getAllMinersLifeItems()) {
-            builder.add(item.asItem()).setReplace(false);
+            miners_life_items_builder.add(item.asItem()).setReplace(false);
         }
     }
 }
