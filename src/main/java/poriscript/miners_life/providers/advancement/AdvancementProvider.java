@@ -2,7 +2,6 @@ package poriscript.miners_life.providers.advancement;
 
 import poriscript.miners_life.Enums;
 import poriscript.miners_life.MinersLife;
-import poriscript.miners_life.block.BlockRegistration;
 import poriscript.miners_life.item.ItemRegistration;
 import poriscript.miners_life.providers.recipe.RecipeProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
