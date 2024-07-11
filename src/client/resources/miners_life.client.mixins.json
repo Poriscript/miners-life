@@ -1,6 +1,6 @@
 {
 	"required": true,
-	"package": "green_villager.miners_life.mixin.client",
+	"package": "poriscript.miners_life.mixin.client",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
 		"ExampleClientMixin"

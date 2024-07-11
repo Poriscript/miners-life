@@ -3,26 +3,26 @@
 	"id": "miners_life",
 	"version": "${version}",
 	"name": "Miners Life",
-	"description": "This mod was made for minecraft miners. Adds some ores and recipes. Have fun!",
+	"description": "This tiny mod was made for minecraft miners. Adds some ores and recipes. Have fun!",
 	"authors": [
-		"GreenVillager"
+		"Poriscript"
 	],
 	"contact": {
-		"homepage": "",
-		"sources": ""
+		"homepage": "https://www.youtube.com/@Pori-mc-player",
+		"sources": "https://github.com/Poriscript/miners-dream"
 	},
 	"license": "The MIT License (MIT)",
 	"icon": "assets/miners_life/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"fabric-datagen": [
-          "green_villager.miners_life.DataGenerator"
+          "poriscript.miners_life.DataGenerator"
 		],
 		"main": [
-          "green_villager.miners_life.MinersLife"
+          "poriscript.miners_life.MinersLife"
 		],
 		"client": [
-			"green_villager.miners_life.MinersLifeClient"
+			"poriscript.miners_life.MinersLifeClient"
 		]
 	},
 	"mixins": [
