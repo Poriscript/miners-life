@@ -28,6 +28,62 @@ public class TranslationProviderFactory {
             .add(Enums.TranslationKeyRoots.Advancements, "get_meatite.title", "肉の石", "Meet stone.")
             .add(Enums.TranslationKeyRoots.Advancements, "get_meatite.description", "ある鉱石を爆破してみましょう", "Let's blow up some ore.")
             .add(Enums.TranslationKeyRoots.Enchantment, "blast_mining", "爆破採掘", "Blast Mining")
+            .add(Enums.TranslationKeyRoots.Block, "charcoal_button", "木炭のボタン", "Charcoal Button")
+            .add(Enums.TranslationKeyRoots.Block, "charcoal_fence", "木炭のフェンス", "Charcoal Fence")
+            .add(Enums.TranslationKeyRoots.Block, "charcoal_fence_gate", "木炭のフェンスゲート", "Charcoal Fence Gate")
+            .add(Enums.TranslationKeyRoots.Block, "charcoal_slab", "木炭のハーフブロック", "Charcoal Slab")
+            .add(Enums.TranslationKeyRoots.Block, "charcoal_stairs", "木炭の階段", "Charcoal Stairs")
+            .add(Enums.TranslationKeyRoots.Block, "charcoal_trapdoor", "木炭のトラップドア", "Charcoal Trapdoor")
+
+            .add(Enums.TranslationKeyRoots.Block, "coal_button", "石炭のボタン", "Coal Button")
+            .add(Enums.TranslationKeyRoots.Block, "coal_fence", "石炭のフェンス", "Coal Fence")
+            .add(Enums.TranslationKeyRoots.Block, "coal_fence_gate", "石炭のフェンスゲート", "Coal Fence Gate")
+            .add(Enums.TranslationKeyRoots.Block, "coal_slab", "石炭のハーフブロック", "Coal Slab")
+            .add(Enums.TranslationKeyRoots.Block, "coal_stairs", "石炭の階段", "Coal Stairs")
+            .add(Enums.TranslationKeyRoots.Block, "coal_trapdoor", "石炭のトラップドア", "Coal Trapdoor")
+
+            .add(Enums.TranslationKeyRoots.Block, "gold_button", "金のボタン", "Gold Button")
+            .add(Enums.TranslationKeyRoots.Block, "gold_fence", "金のフェンス", "Gold Fence")
+            .add(Enums.TranslationKeyRoots.Block, "gold_fence_gate", "金のフェンスゲート", "Gold Fence Gate")
+            .add(Enums.TranslationKeyRoots.Block, "gold_slab", "金のハーフブロック", "Gold Slab")
+            .add(Enums.TranslationKeyRoots.Block, "gold_stairs", "金の階段", "Gold Stairs")
+            .add(Enums.TranslationKeyRoots.Block, "gold_trapdoor", "金のトラップドア", "Gold Trapdoor")
+
+            .add(Enums.TranslationKeyRoots.Block, "diamond_button", "ダイヤモンドのボタン", "Diamond Button")
+            .add(Enums.TranslationKeyRoots.Block, "diamond_fence", "ダイヤモンドのフェンス", "Diamond Fence")
+            .add(Enums.TranslationKeyRoots.Block, "diamond_fence_gate", "ダイヤモンドのフェンスゲート", "Diamond Fence Gate")
+            .add(Enums.TranslationKeyRoots.Block, "diamond_slab", "ダイヤモンドのハーフブロック", "Diamond Slab")
+            .add(Enums.TranslationKeyRoots.Block, "diamond_stairs", "ダイヤモンドの階段", "Diamond Stairs")
+            .add(Enums.TranslationKeyRoots.Block, "diamond_trapdoor", "ダイヤモンドのトラップドア", "Diamond Trapdoor")
+
+            .add(Enums.TranslationKeyRoots.Block, "emerald_button", "エメラルドのボタン", "Emerald Button")
+            .add(Enums.TranslationKeyRoots.Block, "emerald_fence", "エメラルドのフェンス", "Emerald Fence")
+            .add(Enums.TranslationKeyRoots.Block, "emerald_fence_gate", "エメラルドのフェンスゲート", "Emerald Fence Gate")
+            .add(Enums.TranslationKeyRoots.Block, "emerald_slab", "エメラルドのハーフブロック", "Emerald Slab")
+            .add(Enums.TranslationKeyRoots.Block, "emerald_stairs", "エメラルドの階段", "Emerald Stairs")
+            .add(Enums.TranslationKeyRoots.Block, "emerald_trapdoor", "エメラルドのトラップドア", "Emerald Trapdoor")
+
+            .add(Enums.TranslationKeyRoots.Block, "lapis_button", "ラピスラズリのボタン", "Lapis Button")
+            .add(Enums.TranslationKeyRoots.Block, "lapis_fence", "ラピスラズリのフェンス", "Lapis Fence")
+            .add(Enums.TranslationKeyRoots.Block, "lapis_fence_gate", "ラピスラズリのフェンスゲート", "Lapis Fence Gate")
+            .add(Enums.TranslationKeyRoots.Block, "lapis_slab", "ラピスラズリのハーフブロック", "Lapis Slab")
+            .add(Enums.TranslationKeyRoots.Block, "lapis_stairs", "ラピスラズリの階段", "Lapis Stairs")
+            .add(Enums.TranslationKeyRoots.Block, "lapis_trapdoor", "ラピスラズリのトラップドア", "Lapis Trapdoor")
+
+            .add(Enums.TranslationKeyRoots.Block, "netherite_button", "ネザライトのボタン", "Netherite Button")
+            .add(Enums.TranslationKeyRoots.Block, "netherite_fence", "ネザライトのフェンス", "Netherite Fence")
+            .add(Enums.TranslationKeyRoots.Block, "netherite_fence_gate", "ネザライトのフェンスゲート", "Netherite Fence Gate")
+            .add(Enums.TranslationKeyRoots.Block, "netherite_slab", "ネザライトのハーフブロック", "Netherite Slab")
+            .add(Enums.TranslationKeyRoots.Block, "netherite_stairs", "ネザライトの階段", "Netherite Stairs")
+            .add(Enums.TranslationKeyRoots.Block, "netherite_trapdoor", "ネザライトのトラップドア", "Netherite Trapdoor")
+
+            .add(Enums.TranslationKeyRoots.Block, "redstone_button", "レッドストーンのボタン", "Redstone Button")
+            .add(Enums.TranslationKeyRoots.Block, "redstone_fence", "レッドストーンのフェンス", "Redstone Fence")
+            .add(Enums.TranslationKeyRoots.Block, "redstone_fence_gate", "レッドストーンのフェンスゲート", "Redstone Fence Gate")
+            .add(Enums.TranslationKeyRoots.Block, "redstone_slab", "レッドストーンのハーフブロック", "Redstone Slab")
+            .add(Enums.TranslationKeyRoots.Block, "redstone_stairs", "レッドストーンの階段", "Redstone Stairs")
+            .add(Enums.TranslationKeyRoots.Block, "redstone_trapdoor", "レッドストーンのトラップドア", "Redstone Trapdoor")
+
             .build();
 
     private static final String KEY = "key";
@@ -43,7 +99,7 @@ public class TranslationProviderFactory {
                 final String value = switch (languageCode) {
                     case Ja_Jp -> translation.get(Enums.Languages.Ja_Jp.name().toLowerCase());
                     case En_Us -> translation.get(Enums.Languages.En_Us.name().toLowerCase());
-                    default -> throw new RuntimeException("Unknown language code.");
+//                    default -> throw new RuntimeException("Unknown language code.");
                 };
 
                 translationBuilder.add(translation.get(KEY), value);
