@@ -1,5 +1,6 @@
 package poriscript.miners_life.providers.loot_table;
 
+import net.minecraft.block.SlabBlock;
 import poriscript.miners_life.block.BlockRegistration;
 import poriscript.miners_life.item.ItemRegistration;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -16,6 +17,7 @@ import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.function.*;
 import net.minecraft.registry.*;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 
@@ -29,6 +31,25 @@ public class LootTableProvider extends FabricBlockLootTableProvider {
         addDrop(BlockRegistration.CHARCOAL_BLOCK);
         addDrop(BlockRegistration.MEATITE_ORE, getModDefaultOreLootTableBuilder(BlockRegistration.MEATITE_ORE, ItemRegistration.MEATITE));
         addDrop(BlockRegistration.VEGETABLITE_ORE, getModDefaultOreLootTableBuilder(BlockRegistration.VEGETABLITE_ORE, ItemRegistration.VEGETABLITE));
+
+        AddDrops(List.copyOf(BlockRegistration.COAL_FAMILY.getVariants().values()));
+        AddDrops(List.copyOf(BlockRegistration.CHARCOAL_FAMILY.getVariants().values()));
+        AddDrops(List.copyOf(BlockRegistration.GOLD_FAMILY.getVariants().values()));
+        AddDrops(List.copyOf(BlockRegistration.DIAMOND_FAMILY.getVariants().values()));
+        AddDrops(List.copyOf(BlockRegistration.EMERALD_FAMILY.getVariants().values()));
+        AddDrops(List.copyOf(BlockRegistration.LAPIS_FAMILY.getVariants().values()));
+        AddDrops(List.copyOf(BlockRegistration.REDSTONE_FAMILY.getVariants().values()));
+        AddDrops(List.copyOf(BlockRegistration.NETHERITE_FAMILY.getVariants().values()));
+    }
+
+    private void AddDrops(List<Block> blocks) {
+        blocks.forEach(block -> {
+            if (block instanceof SlabBlock) {
+                addDrop(block, slabDrops(block));
+            } else {
+                addDrop(block);
+            }
+        });
     }
 
     private LootTable.Builder getModDefaultOreLootTableBuilder(Block silkTouchDropBlock, Item explosionDropItem) {

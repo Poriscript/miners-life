@@ -1,32 +1,40 @@
-# This is minecraft tiny mod.
+# This is minecraft small mod.
 
-## Changes are below.
-
-### Add items.
+## Add items.
 
 - Meatite ore
 - Meatite
 - Cooked Meatite
-
----
-
 - Vegetablite ore
 - Vegetablite
 - Cooked Vegetablite
-
----
-
 - Charcoal block
 
----
+### Variant blocks are added to the ores below.
 
-### Add an enchantment.
+- Ores
+    - Charcoal block
+    - Coal block
+    - Gold block
+    - Diamond block
+    - Emerald block
+    - Lapis block
+    - Redstone block
+    - Netherite block
+
+- Variants
+    - Button
+    - Fence
+    - FenceGate
+    - Trapdoor
+    - Slab
+    - Stairs
+
+## Add an enchantment.
 
 - Blast Mining Enchantment
 
----
-
-### Tuned terrain.
+## Tune terrain.
 
 - Only amplified overworld
 
@@ -40,9 +48,6 @@
 - Cooked Meatite
     - You can get by cooking in a smoker.
     - Edible. **Nutrition is 6**, Saturation is 1.
-
----
-
 - Vegetablite ore
     - Drops Vegetablite only when broken by exploded.
     - The closer to the blast site, the more drops.
@@ -51,6 +56,8 @@
 - Cooked Vegetablite
     - You can get by cooking in a smoker.
     - Edible. Nutrition is 1, **Saturation is 6.**
+- Gold Trapdoor
+    - Like the iron trapdoor, it cannot be opened and closed by hand.
 
 ---
 
@@ -63,6 +70,6 @@
 
 ---
 
-- Tweaked Amplified terrain
+- Tuned Amplified terrain
     - Impressive terrain such as the Sarisariñama.
     - Sea level is y = 0.

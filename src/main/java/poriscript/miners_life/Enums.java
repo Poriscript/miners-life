@@ -8,7 +8,8 @@ public class Enums {
 
     public enum ActionTypes {
         Get,
-        Craft
+        Collect,
+        Craft,
     }
 
     public enum TranslationKeyRoots {
