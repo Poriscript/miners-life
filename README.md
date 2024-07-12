@@ -58,6 +58,8 @@
     - Edible. Nutrition is 1, **Saturation is 6.**
 - Gold Trapdoor
     - Like the iron trapdoor, it cannot be opened and closed by hand.
+- Redstone Variants
+  - Does not emit Redstone signal. It works like a static block.
 
 ---
 
