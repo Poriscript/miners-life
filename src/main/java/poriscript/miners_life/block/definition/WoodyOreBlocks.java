@@ -49,11 +49,17 @@ public class WoodyOreBlocks {
             .build(MinersLife.getMinersLifeId("metal"), METAL_BLOCK_SET_TYPE);
 
 
-    public static BlockFamily defineBlocks(Block block, boolean isMetal) {
+    private final BlockFamily blockFamily;
+
+    public BlockFamily getBlockFamily() {
+        return blockFamily;
+    }
+
+    public WoodyOreBlocks(Block block, boolean isMetal) {
         final BlockSetType blockSetType = isMetal ? METAL_BLOCK_SET_TYPE : GEM_BLOCK_SET_TYPE;
         final int pressTick = isMetal ? 10 : 20;
 
-        return new BlockFamily
+        blockFamily = new BlockFamily
                 .Builder(block)
                 .button(new ButtonBlock(blockSetType, pressTick, AbstractBlock.Settings.copy(Blocks.STONE).strength(0.6f)))
                 .slab(new SlabBlock(AbstractBlock.Settings.copy(Blocks.STONE_SLAB).strength(2.0f, 6.0f)))

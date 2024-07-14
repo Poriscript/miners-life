@@ -11,26 +11,27 @@ import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.*;
 
 public class ItemGroupRegistration {
     public static void defineItemGroup() {
-        Set<ItemConvertible> all_items = new HashSet<>();
-        all_items.addAll(ItemRegistration.getAllMinersLifeItems());
-        all_items.addAll(BlockRegistration.getAllMinersLifeBlocks());
+        final List<ItemConvertible> modItems = new ArrayList<>();
 
-        final ItemGroup MINERS_LIFE_ITEM_GROUP = registerItemGroup(BlockRegistration.MEATITE_ORE, Text.translatable("itemgroup.miners_life.miners_life"), all_items, MinersLife.getMinersLifeId("miners_life"));
+        modItems.addAll(ItemRegistration.ALL_ITEMS);
+        modItems.addAll(BlockRegistration.ALL_BLOCKS);
+
+        final ItemGroup MINERS_LIFE_ITEM_GROUP = registerItemGroup(BlockRegistration.MEATITE_ORE, Text.translatable("itemgroup.miners_life.miners_life"), modItems, MinersLife.getMinersLifeId("miners_life"));
     }
 
-    public static ItemGroup registerItemGroup(ItemConvertible icon_supplier, MutableText display_name_translation_key, Set<ItemConvertible> items, Identifier id) {
+    private static ItemGroup registerItemGroup(ItemConvertible icon_supplier, MutableText display_name_translation_key, List<ItemConvertible> items, Identifier id) {
         ItemGroup itemGroup = FabricItemGroup.builder()
                 .icon(() -> new ItemStack(icon_supplier))
                 .displayName(display_name_translation_key)
-                .entries((context, entries) -> entries.addAll(items.stream()
-                        .map(ItemStack::new)
-                        .collect(Collectors.toList())))
+                .entries((context, entries) -> {
+                    for (ItemConvertible item : items) {
+                        entries.add(item);
+                    }
+                })
                 .build();
 
         return Registry.register(Registries.ITEM_GROUP, id, itemGroup);
