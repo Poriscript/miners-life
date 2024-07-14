@@ -40,6 +40,17 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
         fencesTagBuilder.add(BlockRegistration.REDSTONE_FAMILY.getVariant(BlockFamily.Variant.FENCE));
         fencesTagBuilder.add(BlockRegistration.NETHERITE_FAMILY.getVariant(BlockFamily.Variant.FENCE));
 
+        final FabricTagProvider<Block>.FabricTagBuilder fenceGatesTagBuilder = getOrCreateTagBuilder(BlockTags.FENCE_GATES);
+        fenceGatesTagBuilder.add(BlockRegistration.CHARCOAL_FAMILY.getVariant(BlockFamily.Variant.FENCE_GATE));
+        fenceGatesTagBuilder.add(BlockRegistration.COAL_FAMILY.getVariant(BlockFamily.Variant.FENCE_GATE));
+        fenceGatesTagBuilder.add(BlockRegistration.GOLD_FAMILY.getVariant(BlockFamily.Variant.FENCE_GATE));
+        fenceGatesTagBuilder.add(BlockRegistration.DIAMOND_FAMILY.getVariant(BlockFamily.Variant.FENCE_GATE));
+        fenceGatesTagBuilder.add(BlockRegistration.EMERALD_FAMILY.getVariant(BlockFamily.Variant.FENCE_GATE));
+        fenceGatesTagBuilder.add(BlockRegistration.LAPIS_FAMILY.getVariant(BlockFamily.Variant.FENCE_GATE));
+        fenceGatesTagBuilder.add(BlockRegistration.REDSTONE_FAMILY.getVariant(BlockFamily.Variant.FENCE_GATE));
+        fenceGatesTagBuilder.add(BlockRegistration.NETHERITE_FAMILY.getVariant(BlockFamily.Variant.FENCE_GATE));
+        fenceGatesTagBuilder.add(BlockRegistration.NETHER_BRICK_FENCE_GATE);
+
         final FabricTagProvider<Block>.FabricTagBuilder pickaxeMineableTagBuilder = getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE);
         BlockRegistration.CHARCOAL_FAMILY.getVariants().forEach((variant, block) -> pickaxeMineableTagBuilder.add(block));
         BlockRegistration.COAL_FAMILY.getVariants().forEach((variant, block) -> pickaxeMineableTagBuilder.add(block));
@@ -49,6 +60,5 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
         BlockRegistration.LAPIS_FAMILY.getVariants().forEach((variant, block) -> pickaxeMineableTagBuilder.add(block));
         BlockRegistration.REDSTONE_FAMILY.getVariants().forEach((variant, block) -> pickaxeMineableTagBuilder.add(block));
         BlockRegistration.NETHERITE_FAMILY.getVariants().forEach((variant, block) -> pickaxeMineableTagBuilder.add(block));
-
     }
 }

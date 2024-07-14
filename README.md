@@ -9,6 +9,7 @@
 - Vegetablite
 - Cooked Vegetablite
 - Charcoal block
+- Nether Brick Fence Gate
 
 ### Variant blocks are added to the ores below.
 
@@ -25,7 +26,7 @@
 - Variants
     - Button
     - Fence
-    - FenceGate
+    - Fence Gate
     - Trapdoor
     - Slab
     - Stairs

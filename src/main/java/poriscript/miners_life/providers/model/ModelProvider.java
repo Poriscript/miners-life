@@ -1,6 +1,7 @@
 package poriscript.miners_life.providers.model;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.util.Identifier;
 import poriscript.miners_life.block.BlockRegistration;
@@ -17,6 +18,8 @@ public class ModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         blockStateModelGenerator.registerSimpleCubeAll(BlockRegistration.CHARCOAL_BLOCK);
+        registerFenceGateBlockModel(blockStateModelGenerator, TextureMap.all(Blocks.NETHER_BRICKS), BlockRegistration.NETHER_BRICK_FENCE_GATE);
+
         blockStateModelGenerator.registerSimpleCubeAll(BlockRegistration.MEATITE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(BlockRegistration.VEGETABLITE_ORE);
 

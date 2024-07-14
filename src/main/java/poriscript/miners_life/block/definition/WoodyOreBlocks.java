@@ -41,7 +41,7 @@ public class WoodyOreBlocks {
             .buttonClickOnSound(SoundEvents.BLOCK_STONE_BUTTON_CLICK_OFF)
             .register(MinersLife.getMinersLifeId("gem"));
 
-    private static final WoodType METAL_FENCE_GATE_WOOD_TYPE = new WoodTypeBuilder()
+    public static final WoodType METAL_FENCE_GATE_WOOD_TYPE = new WoodTypeBuilder()
             .soundGroup(BlockSoundGroup.METAL)
             .fenceGateCloseSound(SoundEvents.BLOCK_NETHER_BRICKS_BREAK)
             .fenceGateOpenSound(SoundEvents.BLOCK_NETHER_BRICKS_PLACE)

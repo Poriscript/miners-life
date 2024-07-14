@@ -33,6 +33,7 @@ public class RecipeProvider extends FabricRecipeProvider {
     public void generate(RecipeExporter exporter) {
         //crafting
         createReversibleCompactingRecipes(exporter, RecipeCategory.MISC, Items.CHARCOAL, RecipeCategory.BUILDING_BLOCKS, BlockRegistration.CHARCOAL_BLOCK.asItem());
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockRegistration.NETHER_BRICK_FENCE_GATE, 3).input('b', Blocks.NETHER_BRICKS).input('i', Items.NETHER_BRICK).pattern("ibi").pattern("ibi").criterion(hasItem(Items.NETHER_BRICK), conditionsFromItem(Items.NETHER_BRICK)).offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.SAND, 2)
                 .input(Items.SOUL_SAND)
@@ -43,12 +44,13 @@ public class RecipeProvider extends FabricRecipeProvider {
 
         createWoodyOreRecipes(exporter, BlockRegistration.CHARCOAL_FAMILY, BlockRegistration.CHARCOAL_BLOCK, Items.CHARCOAL);
         createWoodyOreRecipes(exporter, BlockRegistration.COAL_FAMILY, Blocks.COAL_BLOCK, Items.COAL);
-        createWoodyOreRecipes(exporter, BlockRegistration.GOLD_FAMILY, Blocks.GOLD_BLOCK, Items.GOLD_ORE);
+        createWoodyOreRecipes(exporter, BlockRegistration.GOLD_FAMILY, Blocks.GOLD_BLOCK, Items.GOLD_INGOT);
         createWoodyOreRecipes(exporter, BlockRegistration.DIAMOND_FAMILY, Blocks.DIAMOND_BLOCK, Items.DIAMOND);
         createWoodyOreRecipes(exporter, BlockRegistration.EMERALD_FAMILY, Blocks.EMERALD_BLOCK, Items.EMERALD);
         createWoodyOreRecipes(exporter, BlockRegistration.LAPIS_FAMILY, Blocks.LAPIS_BLOCK, Items.LAPIS_LAZULI);
         createWoodyOreRecipes(exporter, BlockRegistration.REDSTONE_FAMILY, Blocks.REDSTONE_BLOCK, Items.REDSTONE);
-        createWoodyOreRecipes(exporter, BlockRegistration.NETHERITE_FAMILY, Blocks.NETHERITE_BLOCK, Items.ANCIENT_DEBRIS);
+        createWoodyOreRecipes(exporter, BlockRegistration.NETHERITE_FAMILY, Blocks.NETHERITE_BLOCK, Items.NETHERITE_INGOT);
+
 
         //smoking
         createSmokingRecipes(exporter, RecipeCategory.FOOD, ItemRegistration.MEATITE, ItemRegistration.COOKED_MEATITE, 0.2f, 150);
@@ -78,15 +80,15 @@ public class RecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter, MinersLife.getMinersLifeId(String.format("%s_from_smoking_%s", MinersLife.getItemName(output.asItem()), MinersLife.getItemName(input.asItem()))));
     }
 
-    private static void createWoodyOreRecipes(RecipeExporter exporter, BlockFamily outputFamily, Block input, Item buttonMaterial) {
+    private static void createWoodyOreRecipes(RecipeExporter exporter, BlockFamily outputFamily, Block input, Item material) {
         outputFamily.getVariants().forEach((variant, outputBlock) -> {
             switch (variant) {
-                case BUTTON -> offerCrossButtonRecipe(exporter, outputBlock, buttonMaterial);
+                case BUTTON -> offerCrossButtonRecipe(exporter, outputBlock, material);
                 case SLAB -> offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, outputBlock, input);
                 case STAIRS -> offerStairsRecipe(exporter, outputBlock, input);
                 case TRAPDOOR -> offerTrapdoorRecipe(exporter, outputBlock, input);
-                case FENCE -> offerFenceRecipe(exporter, outputBlock, input);
-                case FENCE_GATE -> offerFenceGateRecipe(exporter, outputBlock, input);
+                case FENCE -> offerFenceRecipe(exporter, outputBlock, material);
+                case FENCE_GATE -> offerFenceGateRecipe(exporter, outputBlock, material);
                 default ->
                         throw new RuntimeException(String.format("Recipe generation function of %s is undefined.", variant));
             }
@@ -98,18 +100,18 @@ public class RecipeProvider extends FabricRecipeProvider {
     }
 
     private static void offerStairsRecipe(RecipeExporter exporter, Block output, Block input) {
-        createStairsRecipe(output, Ingredient.ofItems(input)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 6).input('#', input).pattern("#  ").pattern("## ").pattern("###").criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
     }
 
     private static void offerTrapdoorRecipe(RecipeExporter exporter, Block output, Block input) {
-        createTrapdoorRecipe(output, Ingredient.ofItems(input)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, output, 6).input('#', input).pattern("###").pattern("###").criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
     }
 
-    private static void offerFenceRecipe(RecipeExporter exporter, Block output, Block input) {
-        createFenceRecipe(output, Ingredient.ofItems(input)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
+    private static void offerFenceRecipe(RecipeExporter exporter, Block output, Item material) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 2).input('m', material).input('b', Blocks.NETHER_BRICK_FENCE).pattern("mbm").criterion(hasItem(material), conditionsFromItem(material)).offerTo(exporter);
     }
 
-    private static void offerFenceGateRecipe(RecipeExporter exporter, Block output, Block input) {
-        createFenceGateRecipe(output, Ingredient.ofItems(input)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
+    private static void offerFenceGateRecipe(RecipeExporter exporter, Block output, Item material) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 2).input('m', material).input('b', BlockRegistration.NETHER_BRICK_FENCE_GATE).pattern("mbm").criterion(hasItem(material), conditionsFromItem(material)).offerTo(exporter);
     }
 }

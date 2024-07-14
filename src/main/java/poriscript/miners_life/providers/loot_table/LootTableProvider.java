@@ -29,6 +29,7 @@ public class LootTableProvider extends FabricBlockLootTableProvider {
     @Override
     public void generate() {
         addDrop(BlockRegistration.CHARCOAL_BLOCK);
+        addDrop(BlockRegistration.NETHER_BRICK_FENCE_GATE);
         addDrop(BlockRegistration.MEATITE_ORE, getModDefaultOreLootTableBuilder(BlockRegistration.MEATITE_ORE, ItemRegistration.MEATITE));
         addDrop(BlockRegistration.VEGETABLITE_ORE, getModDefaultOreLootTableBuilder(BlockRegistration.VEGETABLITE_ORE, ItemRegistration.VEGETABLITE));
 

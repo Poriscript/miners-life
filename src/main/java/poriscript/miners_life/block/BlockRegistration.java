@@ -21,6 +21,7 @@ import java.util.Set;
 public class BlockRegistration {
 
     public static final Block CHARCOAL_BLOCK = registerBlock(new Block(AbstractBlock.Settings.copy(Blocks.COAL_BLOCK)), "charcoal_block");
+    public static final Block NETHER_BRICK_FENCE_GATE = registerBlock(new FenceGateBlock(WoodyOreBlocks.METAL_FENCE_GATE_WOOD_TYPE, AbstractBlock.Settings.copy(Blocks.NETHER_BRICK_FENCE)), "nether_brick_fence_gate");
 
     public static final Block MEATITE_ORE = registerBlock(new DropItemByExplosionBlock(AbstractBlock.Settings.copy(Blocks.BASALT).strength(0.02f), ItemRegistration.MEATITE), "meatite_ore");
     public static final Block VEGETABLITE_ORE = registerBlock(new DropItemByExplosionBlock(AbstractBlock.Settings.copy(Blocks.BASALT).strength(0.02f), ItemRegistration.VEGETABLITE), "vegetablite_ore");
