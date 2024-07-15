@@ -1,9 +1,10 @@
 package poriscript.miners_life.providers.advancement;
 
-import poriscript.miners_life.Enums;
+import poriscript.miners_life.data.enums.ActionTypes;
 import poriscript.miners_life.MinersLife;
+import poriscript.miners_life.data.enums.Identifiers;
+import poriscript.miners_life.data.enums.TranslationKeyRoots;
 import poriscript.miners_life.item.ItemRegistration;
-import poriscript.miners_life.providers.recipe.RecipeProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 import net.minecraft.advancement.*;
@@ -31,8 +32,8 @@ public class AdvancementProvider extends FabricAdvancementProvider {
         final AdvancementEntry rootAdvancement = Advancement.Builder.create()
                 .display(
                         Items.STONE,
-                        Text.translatable(getTranslationTitleKey("root")),
-                        Text.translatable(getTranslationDescriptionKey("root")),
+                        Text.translatable(getTranslationTitleKey(Identifiers.ROOT.getName())),
+                        Text.translatable(getTranslationDescriptionKey(Identifiers.ROOT.getName())),
                         BACKGROUND_ID,
                         AdvancementFrame.TASK,
                         false,
@@ -40,50 +41,51 @@ public class AdvancementProvider extends FabricAdvancementProvider {
                         false
                 )
                 .criterion("begin_miners_life", InventoryChangedCriterion.Conditions.items(Items.COBBLESTONE))
-                .build(consumer, String.format("%s:root", MinersLife.MOD_ID));
+                .build(Identifiers.ROOT.getId());
 
-        final AdvancementEntry craftSandAdvancement = createAdvancement(consumer, rootAdvancement, Items.SAND,
-                Enums.ActionTypes.Craft,
-                RecipeUnlockedCriterion.create(RecipeProvider.SAND_RECIPE_ID),
+        final AdvancementEntry craftSandAdvancement = createAdvancement(rootAdvancement, Items.SAND,
+                ActionTypes.Craft,
+                RecipeUnlockedCriterion.create(Identifiers.SAND_FROM_CRAFTING.getId()),
                 AdvancementRewards.Builder.experience(128).build());
 
-        final AdvancementEntry getTNTAdvancement = createAdvancement(consumer, craftSandAdvancement, Items.TNT);
+        final AdvancementEntry getTNTAdvancement = createAdvancement(craftSandAdvancement, Items.TNT);
 
-        final AdvancementEntry getMeatiteAdvancement = createAdvancement(consumer, rootAdvancement, ItemRegistration.MEATITE);
-        final AdvancementEntry getVegetabliteAdvancement = createAdvancement(consumer, getMeatiteAdvancement, ItemRegistration.VEGETABLITE);
+        final AdvancementEntry getMeatiteAdvancement = createAdvancement(rootAdvancement, ItemRegistration.MEATITE);
+        final AdvancementEntry getVegetabliteAdvancement = createAdvancement(getMeatiteAdvancement, ItemRegistration.VEGETABLITE);
     }
 
-    private AdvancementEntry createAdvancement(Consumer<AdvancementEntry> consumer, AdvancementEntry parent, Item icon) {
-        return createAdvancement(consumer, parent, icon,
-                Enums.ActionTypes.Get,
+    private AdvancementEntry createAdvancement(AdvancementEntry parent, Item icon) {
+        return createAdvancement(parent, icon,
+                ActionTypes.Get,
                 InventoryChangedCriterion.Conditions.items(icon),
                 AdvancementRewards.Builder.experience(128).build());
     }
 
-    private AdvancementEntry createAdvancement(Consumer<AdvancementEntry> consumer, AdvancementEntry parent, Item icon, Enums.ActionTypes actionType, AdvancementCriterion<?> criterion, AdvancementRewards rewards) {
-        final String get_item_str = String.format("%s_%s", actionType.name().toLowerCase(), MinersLife.getItemName(icon));
+    private AdvancementEntry createAdvancement(AdvancementEntry parent, Item icon, ActionTypes actionType, AdvancementCriterion<?> criterion, AdvancementRewards rewards) {
+        final String actionStr = String.format("%s_%s", actionType.getName(), MinersLife.getName(icon));
+        final Identifier id = Identifier.of(Identifiers.MOD_ID.getName(), actionStr);
 
         return Advancement.Builder.create().parent(parent)
                 .display(
                         icon,
-                        Text.translatable(getTranslationTitleKey(get_item_str)),
-                        Text.translatable(getTranslationDescriptionKey(get_item_str)),
+                        Text.translatable(getTranslationTitleKey(actionStr)),
+                        Text.translatable(getTranslationDescriptionKey(actionStr)),
                         BACKGROUND_ID,
                         AdvancementFrame.TASK,
                         true,
                         true,
                         false
                 )
-                .criterion(get_item_str, criterion)
+                .criterion(actionStr, criterion)
                 .rewards(rewards)
-                .build(consumer, String.format("%s:%s", MinersLife.MOD_ID, get_item_str));
+                .build(id);
     }
 
     private String getTranslationTitleKey(String id) {
-        return String.format("advancements.miners_life.%s.title", id);
+        return String.format("%s.%s.%s.title", TranslationKeyRoots.Advancements.getName(), Identifiers.MOD_ID.getName(), id);
     }
 
     private String getTranslationDescriptionKey(String id) {
-        return String.format("advancements.miners_life.%s.description", id);
+        return String.format("%s.%s.%s.description", TranslationKeyRoots.Advancements.getName(), Identifiers.MOD_ID.getName(), id);
     }
 }

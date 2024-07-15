@@ -23,14 +23,9 @@ public class ModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(BlockRegistration.MEATITE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(BlockRegistration.VEGETABLITE_ORE);
 
-        registerMapBlockModels(blockStateModelGenerator, BlockRegistration.COAL_FAMILY);
-        registerMapBlockModels(blockStateModelGenerator, BlockRegistration.CHARCOAL_FAMILY);
-        registerMapBlockModels(blockStateModelGenerator, BlockRegistration.GOLD_FAMILY);
-        registerMapBlockModels(blockStateModelGenerator, BlockRegistration.DIAMOND_FAMILY);
-        registerMapBlockModels(blockStateModelGenerator, BlockRegistration.EMERALD_FAMILY);
-        registerMapBlockModels(blockStateModelGenerator, BlockRegistration.LAPIS_FAMILY);
-        registerMapBlockModels(blockStateModelGenerator, BlockRegistration.REDSTONE_FAMILY);
-        registerMapBlockModels(blockStateModelGenerator, BlockRegistration.NETHERITE_FAMILY);
+        BlockRegistration.getFamilies().forEach(blockFamily -> {
+            registerMapBlockModels(blockStateModelGenerator, blockFamily);
+        });
     }
 
     private void registerMapBlockModels(BlockStateModelGenerator blockStateModelGenerator, BlockFamily blockFamily) {

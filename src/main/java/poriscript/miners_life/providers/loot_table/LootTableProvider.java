@@ -33,14 +33,9 @@ public class LootTableProvider extends FabricBlockLootTableProvider {
         addDrop(BlockRegistration.MEATITE_ORE, getModDefaultOreLootTableBuilder(BlockRegistration.MEATITE_ORE, ItemRegistration.MEATITE));
         addDrop(BlockRegistration.VEGETABLITE_ORE, getModDefaultOreLootTableBuilder(BlockRegistration.VEGETABLITE_ORE, ItemRegistration.VEGETABLITE));
 
-        AddDrops(List.copyOf(BlockRegistration.COAL_FAMILY.getVariants().values()));
-        AddDrops(List.copyOf(BlockRegistration.CHARCOAL_FAMILY.getVariants().values()));
-        AddDrops(List.copyOf(BlockRegistration.GOLD_FAMILY.getVariants().values()));
-        AddDrops(List.copyOf(BlockRegistration.DIAMOND_FAMILY.getVariants().values()));
-        AddDrops(List.copyOf(BlockRegistration.EMERALD_FAMILY.getVariants().values()));
-        AddDrops(List.copyOf(BlockRegistration.LAPIS_FAMILY.getVariants().values()));
-        AddDrops(List.copyOf(BlockRegistration.REDSTONE_FAMILY.getVariants().values()));
-        AddDrops(List.copyOf(BlockRegistration.NETHERITE_FAMILY.getVariants().values()));
+        BlockRegistration.getFamilies().forEach(blockFamily -> {
+            AddDrops(List.copyOf(blockFamily.getVariants().values()));
+        });
     }
 
     private void AddDrops(List<Block> blocks) {

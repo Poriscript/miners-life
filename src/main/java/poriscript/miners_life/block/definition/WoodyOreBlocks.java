@@ -6,7 +6,7 @@ import net.minecraft.block.*;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvents;
-import poriscript.miners_life.MinersLife;
+import poriscript.miners_life.data.enums.Identifiers;
 
 public class WoodyOreBlocks {
     private static final BlockSetType METAL_BLOCK_SET_TYPE = new BlockSetTypeBuilder()
@@ -23,7 +23,7 @@ public class WoodyOreBlocks {
             .pressurePlateClickOnSound(SoundEvents.BLOCK_METAL_PRESSURE_PLATE_CLICK_ON)
             .buttonClickOffSound(SoundEvents.BLOCK_STONE_BUTTON_CLICK_OFF)
             .buttonClickOnSound(SoundEvents.BLOCK_STONE_BUTTON_CLICK_ON)
-            .register(MinersLife.getMinersLifeId("metal"));
+            .register(Identifiers.METAL.getId());
 
     private static final BlockSetType GEM_BLOCK_SET_TYPE = new BlockSetTypeBuilder()
             .openableByHand(true)
@@ -39,14 +39,14 @@ public class WoodyOreBlocks {
             .pressurePlateClickOnSound(SoundEvents.BLOCK_STONE_PRESSURE_PLATE_CLICK_ON)
             .buttonClickOffSound(SoundEvents.BLOCK_STONE_BUTTON_CLICK_ON)
             .buttonClickOnSound(SoundEvents.BLOCK_STONE_BUTTON_CLICK_OFF)
-            .register(MinersLife.getMinersLifeId("gem"));
+            .register(Identifiers.GEM.getId());
 
     public static final WoodType METAL_FENCE_GATE_WOOD_TYPE = new WoodTypeBuilder()
             .soundGroup(BlockSoundGroup.METAL)
             .fenceGateCloseSound(SoundEvents.BLOCK_NETHER_BRICKS_BREAK)
             .fenceGateOpenSound(SoundEvents.BLOCK_NETHER_BRICKS_PLACE)
             .hangingSignSoundGroup(BlockSoundGroup.NETHER_WOOD_HANGING_SIGN)
-            .build(MinersLife.getMinersLifeId("metal"), METAL_BLOCK_SET_TYPE);
+            .build(Identifiers.METAL.getId(), METAL_BLOCK_SET_TYPE);
 
 
     private final BlockFamily blockFamily;

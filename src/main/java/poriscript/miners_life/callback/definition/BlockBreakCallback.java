@@ -1,6 +1,5 @@
 package poriscript.miners_life.callback.definition;
 
-import poriscript.miners_life.MinersLife;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -20,13 +19,14 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 import net.minecraft.world.explosion.ExplosionBehavior;
+import poriscript.miners_life.data.enums.Identifiers;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
 public class BlockBreakCallback {
-    public static final RegistryKey<Enchantment> BLAST_MINING_REGISTRY_KEY = RegistryKey.of(RegistryKeys.ENCHANTMENT, MinersLife.getMinersLifeId("blast_mining"));
+    public static final RegistryKey<Enchantment> BLAST_MINING_REGISTRY_KEY = RegistryKey.of(RegistryKeys.ENCHANTMENT, Identifiers.BLAST_MINING.getId());
 
     public static void register() {
         PlayerBlockBreakEvents.AFTER.register((world, player, pos, state, blockEntity) -> {

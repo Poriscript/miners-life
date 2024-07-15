@@ -16,7 +16,7 @@
 	"environment": "*",
 	"entrypoints": {
 		"fabric-datagen": [
-          "poriscript.miners_life.DataGenerator"
+          "poriscript.miners_life.data.DataGenerator"
 		],
 		"main": [
           "poriscript.miners_life.MinersLife"

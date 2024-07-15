@@ -2,7 +2,6 @@ package poriscript.miners_life.providers.tag;
 
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.registry.tag.BlockTags;
-import poriscript.miners_life.MinersLife;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.block.Block;
@@ -11,6 +10,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.TagKey;
 import poriscript.miners_life.block.BlockRegistration;
+import poriscript.miners_life.data.enums.Identifiers;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -19,7 +19,7 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
         super(output, completableFuture);
     }
 
-    private static final TagKey<Block> MINERS_LIFE_REPLACEABLE_BLOCKS_OVERWORLD = TagKey.of(RegistryKeys.BLOCK, MinersLife.getMinersLifeId("miners_life_replaceable_blocks_overworld"));
+    private static final TagKey<Block> MINERS_LIFE_REPLACEABLE_BLOCKS_OVERWORLD = TagKey.of(RegistryKeys.BLOCK, Identifiers.REPLACEABLE_BLOCKS_OVERWORLD.getId());
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
@@ -31,34 +31,18 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
         minersLifeReplaceableBlocksOverworldTagBuilder.add(Blocks.GRAVEL);
 
         final FabricTagProvider<Block>.FabricTagBuilder fencesTagBuilder = getOrCreateTagBuilder(BlockTags.FENCES);
-        fencesTagBuilder.add(BlockRegistration.CHARCOAL_FAMILY.getVariant(BlockFamily.Variant.FENCE));
-        fencesTagBuilder.add(BlockRegistration.COAL_FAMILY.getVariant(BlockFamily.Variant.FENCE));
-        fencesTagBuilder.add(BlockRegistration.GOLD_FAMILY.getVariant(BlockFamily.Variant.FENCE));
-        fencesTagBuilder.add(BlockRegistration.DIAMOND_FAMILY.getVariant(BlockFamily.Variant.FENCE));
-        fencesTagBuilder.add(BlockRegistration.EMERALD_FAMILY.getVariant(BlockFamily.Variant.FENCE));
-        fencesTagBuilder.add(BlockRegistration.LAPIS_FAMILY.getVariant(BlockFamily.Variant.FENCE));
-        fencesTagBuilder.add(BlockRegistration.REDSTONE_FAMILY.getVariant(BlockFamily.Variant.FENCE));
-        fencesTagBuilder.add(BlockRegistration.NETHERITE_FAMILY.getVariant(BlockFamily.Variant.FENCE));
-
         final FabricTagProvider<Block>.FabricTagBuilder fenceGatesTagBuilder = getOrCreateTagBuilder(BlockTags.FENCE_GATES);
-        fenceGatesTagBuilder.add(BlockRegistration.CHARCOAL_FAMILY.getVariant(BlockFamily.Variant.FENCE_GATE));
-        fenceGatesTagBuilder.add(BlockRegistration.COAL_FAMILY.getVariant(BlockFamily.Variant.FENCE_GATE));
-        fenceGatesTagBuilder.add(BlockRegistration.GOLD_FAMILY.getVariant(BlockFamily.Variant.FENCE_GATE));
-        fenceGatesTagBuilder.add(BlockRegistration.DIAMOND_FAMILY.getVariant(BlockFamily.Variant.FENCE_GATE));
-        fenceGatesTagBuilder.add(BlockRegistration.EMERALD_FAMILY.getVariant(BlockFamily.Variant.FENCE_GATE));
-        fenceGatesTagBuilder.add(BlockRegistration.LAPIS_FAMILY.getVariant(BlockFamily.Variant.FENCE_GATE));
-        fenceGatesTagBuilder.add(BlockRegistration.REDSTONE_FAMILY.getVariant(BlockFamily.Variant.FENCE_GATE));
-        fenceGatesTagBuilder.add(BlockRegistration.NETHERITE_FAMILY.getVariant(BlockFamily.Variant.FENCE_GATE));
+        final FabricTagProvider<Block>.FabricTagBuilder pickaxeMineableTagBuilder = getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE);
+
         fenceGatesTagBuilder.add(BlockRegistration.NETHER_BRICK_FENCE_GATE);
 
-        final FabricTagProvider<Block>.FabricTagBuilder pickaxeMineableTagBuilder = getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE);
-        BlockRegistration.CHARCOAL_FAMILY.getVariants().forEach((variant, block) -> pickaxeMineableTagBuilder.add(block));
-        BlockRegistration.COAL_FAMILY.getVariants().forEach((variant, block) -> pickaxeMineableTagBuilder.add(block));
-        BlockRegistration.GOLD_FAMILY.getVariants().forEach((variant, block) -> pickaxeMineableTagBuilder.add(block));
-        BlockRegistration.DIAMOND_FAMILY.getVariants().forEach((variant, block) -> pickaxeMineableTagBuilder.add(block));
-        BlockRegistration.EMERALD_FAMILY.getVariants().forEach((variant, block) -> pickaxeMineableTagBuilder.add(block));
-        BlockRegistration.LAPIS_FAMILY.getVariants().forEach((variant, block) -> pickaxeMineableTagBuilder.add(block));
-        BlockRegistration.REDSTONE_FAMILY.getVariants().forEach((variant, block) -> pickaxeMineableTagBuilder.add(block));
-        BlockRegistration.NETHERITE_FAMILY.getVariants().forEach((variant, block) -> pickaxeMineableTagBuilder.add(block));
+        for (BlockFamily family : BlockRegistration.getFamilies()) {
+            fencesTagBuilder.add(family.getVariant(BlockFamily.Variant.FENCE));
+            fenceGatesTagBuilder.add(family.getVariant(BlockFamily.Variant.FENCE_GATE));
+
+            family.getVariants().forEach((variant, block) -> {
+                pickaxeMineableTagBuilder.add(block);
+            });
+        }
     }
 }

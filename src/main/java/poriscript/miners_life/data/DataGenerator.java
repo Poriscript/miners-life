@@ -1,4 +1,4 @@
-package poriscript.miners_life;
+package poriscript.miners_life.data;
 
 import poriscript.miners_life.providers.advancement.AdvancementProvider;
 import poriscript.miners_life.providers.loot_table.LootTableProvider;

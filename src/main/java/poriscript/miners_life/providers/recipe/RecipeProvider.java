@@ -4,8 +4,10 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.item.Item;
+import net.minecraft.util.Identifier;
 import poriscript.miners_life.MinersLife;
 import poriscript.miners_life.block.BlockRegistration;
+import poriscript.miners_life.data.enums.Identifiers;
 import poriscript.miners_life.item.ItemRegistration;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -18,7 +20,6 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.*;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.util.Identifier;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -26,8 +27,6 @@ public class RecipeProvider extends FabricRecipeProvider {
     public RecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);
     }
-
-    public static final Identifier SAND_RECIPE_ID = MinersLife.getMinersLifeId("sand_from_crafting");
 
     @Override
     public void generate(RecipeExporter exporter) {
@@ -40,7 +39,7 @@ public class RecipeProvider extends FabricRecipeProvider {
                 .input(Items.END_STONE)
                 .criterion(FabricRecipeProvider.hasItem(Items.SOUL_SAND), FabricRecipeProvider.conditionsFromItem(Items.SOUL_SAND))
                 .criterion(FabricRecipeProvider.hasItem(Items.END_STONE), FabricRecipeProvider.conditionsFromItem(Items.END_STONE))
-                .offerTo(exporter, SAND_RECIPE_ID);
+                .offerTo(exporter, Identifiers.SAND_FROM_CRAFTING.getId());
 
         createWoodyOreRecipes(exporter, BlockRegistration.CHARCOAL_FAMILY, BlockRegistration.CHARCOAL_BLOCK, Items.CHARCOAL);
         createWoodyOreRecipes(exporter, BlockRegistration.COAL_FAMILY, Blocks.COAL_BLOCK, Items.COAL);
@@ -59,25 +58,25 @@ public class RecipeProvider extends FabricRecipeProvider {
 
 
     private void createReversibleCompactingRecipes(RecipeExporter exporter, RecipeCategory reverseCategory, ItemConvertible baseItem, RecipeCategory compactingCategory, ItemConvertible compactItem) {
-        final String baseItemName = MinersLife.getItemName(baseItem.asItem());
-        final String compactItemName = MinersLife.getItemName(compactItem.asItem());
+        final String baseItemName = MinersLife.getName(baseItem.asItem());
+        final String compactItemName = MinersLife.getName(compactItem.asItem());
 
         ShapelessRecipeJsonBuilder.create(reverseCategory, baseItem, 9)
                 .input(compactItem)
                 .criterion(FabricRecipeProvider.hasItem(compactItem), FabricRecipeProvider.conditionsFromItem(compactItem))
-                .offerTo(exporter, MinersLife.getMinersLifeId(String.format("%s_from_reversing_%s", baseItemName, compactItemName)));
+                .offerTo(exporter, Identifier.of(Identifiers.MOD_ID.getName(), String.format("%s_from_reversing_%s", baseItemName, compactItemName)));
 
         ShapedRecipeJsonBuilder.create(compactingCategory, compactItem, 1)
                 .input('#', baseItem)
                 .pattern("###").pattern("###").pattern("###")
                 .criterion(FabricRecipeProvider.hasItem(baseItem), FabricRecipeProvider.conditionsFromItem(baseItem))
-                .offerTo(exporter, MinersLife.getMinersLifeId(String.format("%s_from_compacting_%s", compactItemName, baseItemName)));
+                .offerTo(exporter, Identifier.of(Identifiers.MOD_ID.getName(), String.format("%s_from_compacting_%s", compactItemName, baseItemName)));
     }
 
     private void createSmokingRecipes(RecipeExporter exporter, RecipeCategory category, ItemConvertible input, ItemConvertible output, float experience, int cookingTime) {
         CookingRecipeJsonBuilder.createSmoking(Ingredient.ofItems(input), category, output, experience, cookingTime)
                 .criterion(FabricRecipeProvider.hasItem(input), FabricRecipeProvider.conditionsFromItem(input))
-                .offerTo(exporter, MinersLife.getMinersLifeId(String.format("%s_from_smoking_%s", MinersLife.getItemName(output.asItem()), MinersLife.getItemName(input.asItem()))));
+                .offerTo(exporter, Identifier.of(Identifiers.MOD_ID.getName(), String.format("%s_from_smoking_%s", MinersLife.getName(output.asItem()), MinersLife.getName(input.asItem()))));
     }
 
     private static void createWoodyOreRecipes(RecipeExporter exporter, BlockFamily outputFamily, Block input, Item material) {
