@@ -61,6 +61,8 @@
     - Like the iron trapdoor, it cannot be opened and closed by hand.
 - Redstone Variants
   - Does not emit Redstone signal. It works like a static block.
+- Craft sand
+  - You can Craft sand from end stone and soul sand.
 
 ---
 
