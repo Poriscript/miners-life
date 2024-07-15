@@ -18,6 +18,7 @@ import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class BlockRegistration {
     public static final List<ItemConvertible> ALL_BLOCKS = new ArrayList<>();
@@ -39,6 +40,12 @@ public class BlockRegistration {
 
     public static void defineBlocks() {
         FuelRegistry.INSTANCE.add(CHARCOAL_BLOCK, 15200);
+
+        for (BlockFamily family : Set.of(CHARCOAL_FAMILY, COAL_FAMILY)) {
+            family.getVariants().forEach((variant, block) -> {
+                FuelRegistry.INSTANCE.add(block, 1600);
+            });
+        }
     }
 
     private static Block registerBlock(Block new_block, Identifier id) {
