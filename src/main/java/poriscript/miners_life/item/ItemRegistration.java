@@ -15,10 +15,10 @@ public class ItemRegistration {
     public static final List<ItemConvertible> ALL_ITEMS = new ArrayList<>();
 
     public static final Item MEATITE = RegisterItem(new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(1).saturationModifier(1).build())), Identifiers.MEATITE.getId());
-    public static final Item COOKED_MEATITE = RegisterItem(new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(6).saturationModifier(1).build())), Identifiers.COOKED_MEATITE.getId());
+    public static final Item COOKED_MEATITE = RegisterItem(new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(12).saturationModifier(0.08f).build())), Identifiers.COOKED_MEATITE.getId());
 
     public static final Item VEGETABLITE = RegisterItem(new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(1).saturationModifier(1).build())), Identifiers.VEGETABLITE.getId());
-    public static final Item COOKED_VEGETABLITE = RegisterItem(new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(1).saturationModifier(6).build())), Identifiers.COOKED_VEGETABLITE.getId());
+    public static final Item COOKED_VEGETABLITE = RegisterItem(new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(3).build())), Identifiers.COOKED_VEGETABLITE.getId());
 
     public static void defineItems() {
 
