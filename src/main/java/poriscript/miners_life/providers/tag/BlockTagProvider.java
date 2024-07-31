@@ -32,6 +32,10 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         final FabricTagProvider<Block>.FabricTagBuilder fencesTagBuilder = getOrCreateTagBuilder(BlockTags.FENCES);
         final FabricTagProvider<Block>.FabricTagBuilder fenceGatesTagBuilder = getOrCreateTagBuilder(BlockTags.FENCE_GATES);
+        final FabricTagProvider<Block>.FabricTagBuilder buttonsTagBuilder = getOrCreateTagBuilder(BlockTags.BUTTONS);
+        final FabricTagProvider<Block>.FabricTagBuilder trapdoorsTagBuilder = getOrCreateTagBuilder(BlockTags.TRAPDOORS);
+        final FabricTagProvider<Block>.FabricTagBuilder slabsTagBuilder = getOrCreateTagBuilder(BlockTags.SLABS);
+        final FabricTagProvider<Block>.FabricTagBuilder stairsTagBuilder = getOrCreateTagBuilder(BlockTags.STAIRS);
         final FabricTagProvider<Block>.FabricTagBuilder pickaxeMineableTagBuilder = getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE);
 
         fenceGatesTagBuilder.add(BlockRegistration.NETHER_BRICK_FENCE_GATE);
@@ -39,6 +43,10 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
         for (BlockFamily family : BlockRegistration.getFamilies()) {
             fencesTagBuilder.add(family.getVariant(BlockFamily.Variant.FENCE));
             fenceGatesTagBuilder.add(family.getVariant(BlockFamily.Variant.FENCE_GATE));
+            buttonsTagBuilder.add(family.getVariant(BlockFamily.Variant.BUTTON));
+            trapdoorsTagBuilder.add(family.getVariant(BlockFamily.Variant.TRAPDOOR));
+            slabsTagBuilder.add(family.getVariant(BlockFamily.Variant.SLAB));
+            stairsTagBuilder.add(family.getVariant(BlockFamily.Variant.STAIRS));
 
             family.getVariants().forEach((variant, block) -> {
                 pickaxeMineableTagBuilder.add(block);
